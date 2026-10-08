@@ -463,7 +463,15 @@ jobs:
                     attempt_pack_dir="$pack_dir/attempt-${attempt}"
                     mkdir -p "$attempt_pack_dir"
                     if npm pack "$package_spec" --pack-destination "$attempt_pack_dir" >/dev/null; then
-                      echo "Verified ${package_spec}: metadata, integrity, tarball download, and npm pack are available."
+                      fresh_consumer="${RUNNER_TEMP}/npm-publish-consumer-${attempt}"
+                      mkdir -p "$fresh_consumer"
+                      printf '{"name":"capability-publish-consumer","private":true,"version":"0.0.0","type":"module"}\n' > "$fresh_consumer/package.json"
+                      (
+                        cd "$fresh_consumer"
+                        npm install --ignore-scripts "$package_spec" >/dev/null
+                        PUBLISHED_PACKAGE_NAME="$PUBLISHED_PACKAGE_NAME" node --input-type=module -e 'await import(process.env.PUBLISHED_PACKAGE_NAME)'
+                      )
+                      echo "Verified ${package_spec}: metadata, integrity, tarball download, npm pack, and fresh-consumer import are available."
                       exit 0
                     fi
                   fi
