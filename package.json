@@ -1,6 +1,6 @@
 {
   "name": "@ankhorage/capability",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Generic runtime validation, normalization, equality, and catalog operations for Ankhorage capabilities.",
   "license": "MIT",
   "homepage": "https://github.com/ankhorage/capability#readme",

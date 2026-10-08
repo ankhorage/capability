@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.1.0",
+      "value": "v0.2.0",
       "color": "cb3837"
     },
     {
@@ -465,7 +465,7 @@
       "modulePath": "src/features/capability/parseCapability.ts",
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 22,
+        "line": 27,
         "column": 1
       },
       "exportPaths": [
@@ -580,7 +580,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/normalizeCapability.ts",
-        "line": 25,
+        "line": 27,
         "column": 1
       }
     },
@@ -591,7 +591,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/normalizeCapability.ts",
-        "line": 30,
+        "line": 32,
         "column": 1
       }
     },
@@ -602,7 +602,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 22,
+        "line": 27,
         "column": 1
       }
     },
@@ -613,7 +613,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 42,
+        "line": 48,
         "column": 1
       }
     },
@@ -624,7 +624,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 47,
+        "line": 53,
         "column": 1
       }
     },
@@ -635,7 +635,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 52,
+        "line": 58,
         "column": 1
       }
     },
@@ -646,7 +646,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 62,
+        "line": 68,
         "column": 1
       }
     },
@@ -657,7 +657,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 69,
+        "line": 73,
         "column": 1
       }
     },
@@ -668,7 +668,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 76,
+        "line": 78,
         "column": 1
       }
     },
@@ -679,7 +679,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 81,
+        "line": 83,
         "column": 1
       }
     },
@@ -690,7 +690,40 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 90,
+        "line": 92,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataSchemaMetadata",
+      "description": "Validate descriptive and object-shape metadata for one data schema.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 102,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataSchemaStructure",
+      "description": "Validate recursive composition and reference fields for one data schema.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 116,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataSchemaValues",
+      "description": "Validate serializable constant, default, and enum fields for one data schema.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 127,
         "column": 1
       }
     },
@@ -701,7 +734,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 113,
+        "line": 136,
         "column": 1
       }
     },
@@ -712,7 +745,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 123,
+        "line": 147,
         "column": 1
       }
     },
@@ -723,7 +756,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 128,
+        "line": 155,
         "column": 1
       }
     },
@@ -734,7 +767,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 133,
+        "line": 160,
         "column": 1
       }
     },
@@ -745,7 +778,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 138,
+        "line": 165,
         "column": 1
       }
     },
@@ -756,7 +789,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 143,
+        "line": 170,
         "column": 1
       }
     },
@@ -767,7 +800,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 148,
+        "line": 175,
         "column": 1
       }
     },
@@ -778,7 +811,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 153,
+        "line": 180,
         "column": 1
       }
     },
@@ -789,7 +822,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 158,
+        "line": 185,
         "column": 1
       }
     },
@@ -1255,60 +1288,78 @@
       },
       {
         "fromSymbol": "isDataSchema",
+        "toSymbol": "isDataSchemaMetadata",
+        "callExpression": "isDataSchemaMetadata",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchema",
+        "toSymbol": "isDataSchemaStructure",
+        "callExpression": "isDataSchemaStructure",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchema",
+        "toSymbol": "isDataSchemaValues",
+        "callExpression": "isDataSchemaValues",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchemaMetadata",
         "toSymbol": "isOptionalDataSchemaType",
         "callExpression": "isOptionalDataSchemaType",
         "sourcePath": "src/features/capability/parseCapability.ts"
       },
       {
-        "fromSymbol": "isDataSchema",
+        "fromSymbol": "isDataSchemaMetadata",
         "toSymbol": "isOptionalString",
         "callExpression": "isOptionalString",
         "sourcePath": "src/features/capability/parseCapability.ts"
       },
       {
-        "fromSymbol": "isDataSchema",
+        "fromSymbol": "isDataSchemaMetadata",
         "toSymbol": "isOptionalStringArray",
         "callExpression": "isOptionalStringArray",
         "sourcePath": "src/features/capability/parseCapability.ts"
       },
       {
-        "fromSymbol": "isDataSchema",
+        "fromSymbol": "isDataSchemaMetadata",
         "toSymbol": "isOptionalDataSchemaProperties",
         "callExpression": "isOptionalDataSchemaProperties",
         "sourcePath": "src/features/capability/parseCapability.ts"
       },
       {
-        "fromSymbol": "isDataSchema",
+        "fromSymbol": "isDataSchemaMetadata",
         "toSymbol": "isOptionalAdditionalProperties",
         "callExpression": "isOptionalAdditionalProperties",
         "sourcePath": "src/features/capability/parseCapability.ts"
       },
       {
-        "fromSymbol": "isDataSchema",
+        "fromSymbol": "isDataSchemaStructure",
         "toSymbol": "isDataSchema",
         "callExpression": "isDataSchema",
         "sourcePath": "src/features/capability/parseCapability.ts"
       },
       {
-        "fromSymbol": "isDataSchema",
+        "fromSymbol": "isDataSchemaStructure",
         "toSymbol": "isOptionalDataSchemaArray",
         "callExpression": "isOptionalDataSchemaArray",
         "sourcePath": "src/features/capability/parseCapability.ts"
       },
       {
-        "fromSymbol": "isDataSchema",
+        "fromSymbol": "isDataSchemaStructure",
         "toSymbol": "isDataSchemaRef",
         "callExpression": "isDataSchemaRef",
         "sourcePath": "src/features/capability/parseCapability.ts"
       },
       {
-        "fromSymbol": "isDataSchema",
+        "fromSymbol": "isDataSchemaValues",
         "toSymbol": "isOptionalSerializableValue",
         "callExpression": "isOptionalSerializableValue",
         "sourcePath": "src/features/capability/parseCapability.ts"
       },
       {
-        "fromSymbol": "isDataSchema",
+        "fromSymbol": "isDataSchemaValues",
         "toSymbol": "isOptionalSerializableValueArray",
         "callExpression": "isOptionalSerializableValueArray",
         "sourcePath": "src/features/capability/parseCapability.ts"

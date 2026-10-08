@@ -104,7 +104,7 @@ Normalize trusted catalog descriptors and sort them by stable capability identif
 
 Kind: `function`
 Module: `src/features/capability/parseCapability.ts`
-Source: `src/features/capability/parseCapability.ts:22:1`
+Source: `src/features/capability/parseCapability.ts:27:1`
 
 Parse one complete portable capability descriptor from an untrusted value.
 
