@@ -1,0 +1,338 @@
+[
+  {
+    "name": "areCapabilitiesEqual",
+    "title": null,
+    "description": "Compare capability descriptors independently of record keys and unordered collection ordering.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/capability/areCapabilitiesEqual.ts",
+    "sourceLocation": {
+      "filePath": "src/features/capability/areCapabilitiesEqual.ts",
+      "line": 7,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(left: Capability, right: Capability) => boolean",
+        "parameters": [
+          {
+            "name": "left",
+            "type": "Capability",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "right",
+            "type": "Capability",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "boolean",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "areCapabilityCatalogsEqual",
+    "title": null,
+    "description": "Compare capability catalogs independently of authored catalog and unordered descriptor collection ordering.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/catalog/areCapabilityCatalogsEqual.ts",
+    "sourceLocation": {
+      "filePath": "src/features/catalog/areCapabilityCatalogsEqual.ts",
+      "line": 7,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(left: readonly Capability[], right: readonly Capability[]) => boolean",
+        "parameters": [
+          {
+            "name": "left",
+            "type": "readonly Capability[]",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "right",
+            "type": "readonly Capability[]",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "boolean",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "isCapability",
+    "title": null,
+    "description": "Validate an untrusted value as one complete portable capability descriptor.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/capability/isCapability.ts",
+    "sourceLocation": {
+      "filePath": "src/features/capability/isCapability.ts",
+      "line": 6,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(value: unknown) => boolean",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "unknown",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "boolean",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "isCapabilityCatalog",
+    "title": null,
+    "description": "Validate a capability catalog with complete descriptors and unique stable identifiers.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/catalog/isCapabilityCatalog.ts",
+    "sourceLocation": {
+      "filePath": "src/features/catalog/isCapabilityCatalog.ts",
+      "line": 6,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(value: unknown) => boolean",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "unknown",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "boolean",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "isCapabilityId",
+    "title": null,
+    "description": "Validate a stable dot-separated identifier for one capability.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/capability/isCapabilityId.ts",
+    "sourceLocation": {
+      "filePath": "src/features/capability/isCapabilityId.ts",
+      "line": 5,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(value: unknown) => boolean",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "unknown",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "boolean",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "normalizeCapability",
+    "title": null,
+    "description": "Return a capability with unordered access and binding-role collections sorted and deduplicated.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/capability/normalizeCapability.ts",
+    "sourceLocation": {
+      "filePath": "src/features/capability/normalizeCapability.ts",
+      "line": 8,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(capability: Capability) => Capability",
+        "parameters": [
+          {
+            "name": "capability",
+            "type": "Capability",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "Capability",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "normalizeCapabilityCatalog",
+    "title": null,
+    "description": "Normalize trusted catalog descriptors and sort them by stable capability identifier.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/catalog/normalizeCapabilityCatalog.ts",
+    "sourceLocation": {
+      "filePath": "src/features/catalog/normalizeCapabilityCatalog.ts",
+      "line": 6,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(catalog: readonly Capability[]) => readonly Capability[]",
+        "parameters": [
+          {
+            "name": "catalog",
+            "type": "readonly Capability[]",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "readonly Capability[]",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "parseCapability",
+    "title": null,
+    "description": "Parse one complete portable capability descriptor from an untrusted value.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/capability/parseCapability.ts",
+    "sourceLocation": {
+      "filePath": "src/features/capability/parseCapability.ts",
+      "line": 22,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(value: unknown) => Capability | null",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "unknown",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "Capability | null",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "parseCapabilityCatalog",
+    "title": null,
+    "description": "Parse a capability catalog and reject invalid descriptors or duplicate stable identifiers.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/catalog/parseCapabilityCatalog.ts",
+    "sourceLocation": {
+      "filePath": "src/features/catalog/parseCapabilityCatalog.ts",
+      "line": 6,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(value: unknown) => readonly Capability[] | null",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "unknown",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "readonly Capability[] | null",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  }
+]

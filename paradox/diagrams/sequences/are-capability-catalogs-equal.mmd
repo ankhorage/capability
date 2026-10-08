@@ -1,0 +1,8 @@
+sequenceDiagram
+  participant participant_areCapabilityCatalogsEqual as areCapabilityCatalogsEqual
+  participant participant_isDeepEqual as isDeepEqual
+  participant participant_normalizeCapabilityCatalog as normalizeCapabilityCatalog
+  participant_areCapabilityCatalogsEqual->>participant_isDeepEqual: isDeepEqual()
+  participant_isDeepEqual-->>participant_areCapabilityCatalogsEqual: return
+  participant_areCapabilityCatalogsEqual->>participant_normalizeCapabilityCatalog: normalizeCapabilityCatalog()
+  participant_normalizeCapabilityCatalog-->>participant_areCapabilityCatalogsEqual: return

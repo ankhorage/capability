@@ -1,0 +1,35 @@
+graph TD
+  package__ankhorage_capability["@ankhorage/capability"]
+  entrypoint_src_index_ts["src/index.ts"]
+  package__ankhorage_capability --> entrypoint_src_index_ts
+  module_src_features_capability_areCapabilitiesEqual_ts["src/features/capability/areCapabilitiesEqual.ts"]
+  package__ankhorage_capability -.-> module_src_features_capability_areCapabilitiesEqual_ts
+  module_src_features_capability_areCapabilitiesEqual_ts --> module_src_features_capability_normalizeCapability_ts
+  module_src_features_capability_isCapability_ts["src/features/capability/isCapability.ts"]
+  package__ankhorage_capability -.-> module_src_features_capability_isCapability_ts
+  module_src_features_capability_isCapability_ts --> module_src_features_capability_parseCapability_ts
+  module_src_features_capability_isCapabilityId_ts["src/features/capability/isCapabilityId.ts"]
+  package__ankhorage_capability -.-> module_src_features_capability_isCapabilityId_ts
+  module_src_features_capability_normalizeCapability_ts["src/features/capability/normalizeCapability.ts"]
+  package__ankhorage_capability -.-> module_src_features_capability_normalizeCapability_ts
+  module_src_features_capability_parseCapability_ts["src/features/capability/parseCapability.ts"]
+  package__ankhorage_capability -.-> module_src_features_capability_parseCapability_ts
+  module_src_features_capability_parseCapability_ts --> module_src_features_capability_isCapabilityId_ts
+  module_src_features_catalog_areCapabilityCatalogsEqual_ts["src/features/catalog/areCapabilityCatalogsEqual.ts"]
+  package__ankhorage_capability -.-> module_src_features_catalog_areCapabilityCatalogsEqual_ts
+  module_src_features_catalog_areCapabilityCatalogsEqual_ts --> module_src_features_catalog_normalizeCapabilityCatalog_ts
+  module_src_features_catalog_isCapabilityCatalog_ts["src/features/catalog/isCapabilityCatalog.ts"]
+  package__ankhorage_capability -.-> module_src_features_catalog_isCapabilityCatalog_ts
+  module_src_features_catalog_isCapabilityCatalog_ts --> module_src_features_catalog_parseCapabilityCatalog_ts
+  module_src_features_catalog_normalizeCapabilityCatalog_ts["src/features/catalog/normalizeCapabilityCatalog.ts"]
+  package__ankhorage_capability -.-> module_src_features_catalog_normalizeCapabilityCatalog_ts
+  module_src_features_catalog_normalizeCapabilityCatalog_ts --> module_src_features_capability_normalizeCapability_ts
+  module_src_features_catalog_parseCapabilityCatalog_ts["src/features/catalog/parseCapabilityCatalog.ts"]
+  package__ankhorage_capability -.-> module_src_features_catalog_parseCapabilityCatalog_ts
+  module_src_features_catalog_parseCapabilityCatalog_ts --> module_src_features_capability_parseCapability_ts
+  module_src_index_ts["src/index.ts"]
+  module_tests_capability_test_ts["tests/capability.test.ts"]
+  package__ankhorage_capability -.-> module_tests_capability_test_ts
+  module_tests_capability_test_ts --> module_src_index_ts
+  module_tests_standalone_test_ts["tests/standalone.test.ts"]
+  package__ankhorage_capability -.-> module_tests_standalone_test_ts

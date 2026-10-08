@@ -1,0 +1,1405 @@
+{
+  "packageName": "@ankhorage/capability",
+  "packageId": "@ankhorage/capability",
+  "description": "Generic runtime validation, normalization, equality, and catalog operations for Ankhorage capabilities.",
+  "collaborators": null,
+  "donation": null,
+  "badges": [
+    {
+      "id": "license",
+      "label": "license",
+      "value": "MIT",
+      "color": "2563eb"
+    },
+    {
+      "id": "npm",
+      "label": "npm",
+      "value": "v0.1.0",
+      "color": "cb3837"
+    },
+    {
+      "id": "runtime",
+      "label": "runtime",
+      "value": "bun",
+      "color": "f59e0b"
+    },
+    {
+      "id": "typescript",
+      "label": "typescript",
+      "value": "strict",
+      "color": "2563eb"
+    },
+    {
+      "id": "eslint",
+      "label": "eslint",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "prettier",
+      "label": "prettier",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "build",
+      "label": "build",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "tests",
+      "label": "tests",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "docs",
+      "label": "paradox",
+      "value": "canonical",
+      "color": "0a7f3f"
+    }
+  ],
+  "usage": {
+    "packageName": "@ankhorage/capability",
+    "command": "ankh capability --help"
+  },
+  "usageEntries": [],
+  "exampleCount": 0,
+  "findings": [],
+  "config": null,
+  "entrypoints": [
+    "src/index.ts"
+  ],
+  "modules": [
+    {
+      "path": "src/features/capability/areCapabilitiesEqual.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/capability/normalizeCapability.ts"
+      ],
+      "exports": [
+        "areCapabilitiesEqual"
+      ]
+    },
+    {
+      "path": "src/features/capability/isCapability.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/capability/parseCapability.ts"
+      ],
+      "exports": [
+        "isCapability"
+      ]
+    },
+    {
+      "path": "src/features/capability/isCapabilityId.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "isCapabilityId"
+      ]
+    },
+    {
+      "path": "src/features/capability/normalizeCapability.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "normalizeCapability"
+      ]
+    },
+    {
+      "path": "src/features/capability/parseCapability.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/capability/isCapabilityId.ts"
+      ],
+      "exports": [
+        "parseCapability"
+      ]
+    },
+    {
+      "path": "src/features/catalog/areCapabilityCatalogsEqual.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/catalog/normalizeCapabilityCatalog.ts"
+      ],
+      "exports": [
+        "areCapabilityCatalogsEqual"
+      ]
+    },
+    {
+      "path": "src/features/catalog/isCapabilityCatalog.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/catalog/parseCapabilityCatalog.ts"
+      ],
+      "exports": [
+        "isCapabilityCatalog"
+      ]
+    },
+    {
+      "path": "src/features/catalog/normalizeCapabilityCatalog.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/capability/normalizeCapability.ts"
+      ],
+      "exports": [
+        "normalizeCapabilityCatalog"
+      ]
+    },
+    {
+      "path": "src/features/catalog/parseCapabilityCatalog.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/capability/parseCapability.ts"
+      ],
+      "exports": [
+        "parseCapabilityCatalog"
+      ]
+    },
+    {
+      "path": "src/index.ts",
+      "isEntrypoint": true,
+      "dependencies": [],
+      "exports": [
+        "areCapabilitiesEqual",
+        "areCapabilityCatalogsEqual",
+        "isCapability",
+        "isCapabilityCatalog",
+        "isCapabilityId",
+        "normalizeCapability",
+        "normalizeCapabilityCatalog",
+        "parseCapability",
+        "parseCapabilityCatalog"
+      ]
+    },
+    {
+      "path": "tests/capability.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/index.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "tests/standalone.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": []
+    }
+  ],
+  "exports": [
+    {
+      "name": "areCapabilitiesEqual",
+      "title": null,
+      "description": "Compare capability descriptors independently of record keys and unordered collection ordering.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/capability/areCapabilitiesEqual.ts",
+      "sourceLocation": {
+        "filePath": "src/features/capability/areCapabilitiesEqual.ts",
+        "line": 7,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(left: Capability, right: Capability) => boolean",
+          "parameters": [
+            {
+              "name": "left",
+              "type": "Capability",
+              "required": true,
+              "description": null
+            },
+            {
+              "name": "right",
+              "type": "Capability",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "boolean",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "areCapabilityCatalogsEqual",
+      "title": null,
+      "description": "Compare capability catalogs independently of authored catalog and unordered descriptor collection ordering.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/catalog/areCapabilityCatalogsEqual.ts",
+      "sourceLocation": {
+        "filePath": "src/features/catalog/areCapabilityCatalogsEqual.ts",
+        "line": 7,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(left: readonly Capability[], right: readonly Capability[]) => boolean",
+          "parameters": [
+            {
+              "name": "left",
+              "type": "readonly Capability[]",
+              "required": true,
+              "description": null
+            },
+            {
+              "name": "right",
+              "type": "readonly Capability[]",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "boolean",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "isCapability",
+      "title": null,
+      "description": "Validate an untrusted value as one complete portable capability descriptor.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/capability/isCapability.ts",
+      "sourceLocation": {
+        "filePath": "src/features/capability/isCapability.ts",
+        "line": 6,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(value: unknown) => boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "unknown",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "boolean",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "isCapabilityCatalog",
+      "title": null,
+      "description": "Validate a capability catalog with complete descriptors and unique stable identifiers.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/catalog/isCapabilityCatalog.ts",
+      "sourceLocation": {
+        "filePath": "src/features/catalog/isCapabilityCatalog.ts",
+        "line": 6,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(value: unknown) => boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "unknown",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "boolean",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "isCapabilityId",
+      "title": null,
+      "description": "Validate a stable dot-separated identifier for one capability.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/capability/isCapabilityId.ts",
+      "sourceLocation": {
+        "filePath": "src/features/capability/isCapabilityId.ts",
+        "line": 5,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(value: unknown) => boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "unknown",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "boolean",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "normalizeCapability",
+      "title": null,
+      "description": "Return a capability with unordered access and binding-role collections sorted and deduplicated.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/capability/normalizeCapability.ts",
+      "sourceLocation": {
+        "filePath": "src/features/capability/normalizeCapability.ts",
+        "line": 8,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(capability: Capability) => Capability",
+          "parameters": [
+            {
+              "name": "capability",
+              "type": "Capability",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "Capability",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "normalizeCapabilityCatalog",
+      "title": null,
+      "description": "Normalize trusted catalog descriptors and sort them by stable capability identifier.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/catalog/normalizeCapabilityCatalog.ts",
+      "sourceLocation": {
+        "filePath": "src/features/catalog/normalizeCapabilityCatalog.ts",
+        "line": 6,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(catalog: readonly Capability[]) => readonly Capability[]",
+          "parameters": [
+            {
+              "name": "catalog",
+              "type": "readonly Capability[]",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "readonly Capability[]",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "parseCapability",
+      "title": null,
+      "description": "Parse one complete portable capability descriptor from an untrusted value.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/capability/parseCapability.ts",
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 22,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(value: unknown) => Capability | null",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "unknown",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "Capability | null",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "parseCapabilityCatalog",
+      "title": null,
+      "description": "Parse a capability catalog and reject invalid descriptors or duplicate stable identifiers.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/catalog/parseCapabilityCatalog.ts",
+      "sourceLocation": {
+        "filePath": "src/features/catalog/parseCapabilityCatalog.ts",
+        "line": 6,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(value: unknown) => readonly Capability[] | null",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "unknown",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "readonly Capability[] | null",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    }
+  ],
+  "components": [],
+  "sourceFunctions": [
+    {
+      "name": "areCapabilitiesEqual",
+      "description": "Compare capability descriptors independently of record keys and unordered collection ordering.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/areCapabilitiesEqual.ts",
+        "line": 7,
+        "column": 1
+      }
+    },
+    {
+      "name": "isCapability",
+      "description": "Validate an untrusted value as one complete portable capability descriptor.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/isCapability.ts",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "name": "isCapabilityId",
+      "description": "Validate a stable dot-separated identifier for one capability.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/isCapabilityId.ts",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeCapability",
+      "description": "Return a capability with unordered access and binding-role collections sorted and deduplicated.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/normalizeCapability.ts",
+        "line": 8,
+        "column": 1
+      }
+    },
+    {
+      "name": "isCapabilityAccess",
+      "description": "Retain one known portable capability access operation after generic string normalization.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/normalizeCapability.ts",
+        "line": 25,
+        "column": 1
+      }
+    },
+    {
+      "name": "isCapabilityBindingRole",
+      "description": "Retain one known portable capability binding direction after generic string normalization.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/normalizeCapability.ts",
+        "line": 30,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseCapability",
+      "description": "Parse one complete portable capability descriptor from an untrusted value.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 22,
+        "column": 1
+      }
+    },
+    {
+      "name": "isCapabilityAccessList",
+      "description": "Validate a non-empty list of supported capability access operations.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 42,
+        "column": 1
+      }
+    },
+    {
+      "name": "isCapabilityAccess",
+      "description": "Validate one supported capability access operation.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 47,
+        "column": 1
+      }
+    },
+    {
+      "name": "isCapabilityBinding",
+      "description": "Validate the portable binding shape attached to a capability descriptor.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 52,
+        "column": 1
+      }
+    },
+    {
+      "name": "isCapabilityBindingKind",
+      "description": "Validate one supported portable capability binding family.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 62,
+        "column": 1
+      }
+    },
+    {
+      "name": "isCapabilityBindingRole",
+      "description": "Validate one supported capability binding direction.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 69,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalDataSchemaSlot",
+      "description": "Validate an omitted or structurally valid portable data-schema slot.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 76,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataSchemaSlot",
+      "description": "Validate one portable data-schema slot without importing an executable Contracts helper.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 81,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataSchema",
+      "description": "Validate the serializable recursive data-schema shape used by capability slots.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 90,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalDataSchemaType",
+      "description": "Validate an omitted data-schema type or supported primitive type declaration.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 113,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalStringArray",
+      "description": "Validate an omitted array of required property names.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 123,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalDataSchemaProperties",
+      "description": "Validate an omitted map of nested data schemas.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 128,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalAdditionalProperties",
+      "description": "Validate an omitted additional-properties declaration.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 133,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalDataSchemaArray",
+      "description": "Validate an omitted recursive data-schema collection.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 138,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataSchemaRef",
+      "description": "Validate a schema reference with a non-empty stable identifier.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 143,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalSerializableValue",
+      "description": "Validate an omitted JSON-serializable scalar, array, or record value.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 148,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalSerializableValueArray",
+      "description": "Validate an omitted array of JSON-serializable values.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 153,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSerializableValue",
+      "description": "Validate one JSON-serializable value recursively.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 158,
+        "column": 1
+      }
+    },
+    {
+      "name": "areCapabilityCatalogsEqual",
+      "description": "Compare capability catalogs independently of authored catalog and unordered descriptor collection ordering.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/catalog/areCapabilityCatalogsEqual.ts",
+        "line": 7,
+        "column": 1
+      }
+    },
+    {
+      "name": "isCapabilityCatalog",
+      "description": "Validate a capability catalog with complete descriptors and unique stable identifiers.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/catalog/isCapabilityCatalog.ts",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeCapabilityCatalog",
+      "description": "Normalize trusted catalog descriptors and sort them by stable capability identifier.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/catalog/normalizeCapabilityCatalog.ts",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseCapabilityCatalog",
+      "description": "Parse a capability catalog and reject invalid descriptors or duplicate stable identifiers.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/catalog/parseCapabilityCatalog.ts",
+        "line": 6,
+        "column": 1
+      }
+    }
+  ],
+  "sequenceScenarios": [
+    {
+      "kind": "export",
+      "name": "areCapabilitiesEqual",
+      "sourcePath": "src/features/capability/areCapabilitiesEqual.ts",
+      "symbolName": "areCapabilitiesEqual",
+      "description": "Compare capability descriptors independently of record keys and unordered collection ordering.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "areCapabilityCatalogsEqual",
+      "sourcePath": "src/features/catalog/areCapabilityCatalogsEqual.ts",
+      "symbolName": "areCapabilityCatalogsEqual",
+      "description": "Compare capability catalogs independently of authored catalog and unordered descriptor collection ordering.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "isCapability",
+      "sourcePath": "src/features/capability/isCapability.ts",
+      "symbolName": "isCapability",
+      "description": "Validate an untrusted value as one complete portable capability descriptor.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "isCapabilityCatalog",
+      "sourcePath": "src/features/catalog/isCapabilityCatalog.ts",
+      "symbolName": "isCapabilityCatalog",
+      "description": "Validate a capability catalog with complete descriptors and unique stable identifiers.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "isCapabilityId",
+      "sourcePath": "src/features/capability/isCapabilityId.ts",
+      "symbolName": "isCapabilityId",
+      "description": "Validate a stable dot-separated identifier for one capability.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "normalizeCapability",
+      "sourcePath": "src/features/capability/normalizeCapability.ts",
+      "symbolName": "normalizeCapability",
+      "description": "Return a capability with unordered access and binding-role collections sorted and deduplicated.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "normalizeCapabilityCatalog",
+      "sourcePath": "src/features/catalog/normalizeCapabilityCatalog.ts",
+      "symbolName": "normalizeCapabilityCatalog",
+      "description": "Normalize trusted catalog descriptors and sort them by stable capability identifier.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "parseCapability",
+      "sourcePath": "src/features/capability/parseCapability.ts",
+      "symbolName": "parseCapability",
+      "description": "Parse one complete portable capability descriptor from an untrusted value.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "parseCapabilityCatalog",
+      "sourcePath": "src/features/catalog/parseCapabilityCatalog.ts",
+      "symbolName": "parseCapabilityCatalog",
+      "description": "Parse a capability catalog and reject invalid descriptors or duplicate stable identifiers.",
+      "isReadme": false
+    }
+  ],
+  "graphs": {
+    "imports": [
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/capability/areCapabilitiesEqual.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/capability/isCapability.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/capability/isCapabilityId.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/capability/normalizeCapability.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/capability/parseCapability.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/catalog/areCapabilityCatalogsEqual.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/catalog/isCapabilityCatalog.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/catalog/normalizeCapabilityCatalog.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/catalog/parseCapabilityCatalog.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "tests/capability.test.ts",
+        "toPath": "src/index.ts",
+        "sourcePath": "tests/capability.test.ts"
+      },
+      {
+        "fromPath": "src/features/capability/areCapabilitiesEqual.ts",
+        "toPath": "src/features/capability/normalizeCapability.ts",
+        "sourcePath": "src/features/capability/areCapabilitiesEqual.ts"
+      },
+      {
+        "fromPath": "src/features/capability/isCapability.ts",
+        "toPath": "src/features/capability/parseCapability.ts",
+        "sourcePath": "src/features/capability/isCapability.ts"
+      },
+      {
+        "fromPath": "src/features/capability/parseCapability.ts",
+        "toPath": "src/features/capability/isCapabilityId.ts",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromPath": "src/features/catalog/areCapabilityCatalogsEqual.ts",
+        "toPath": "src/features/catalog/normalizeCapabilityCatalog.ts",
+        "sourcePath": "src/features/catalog/areCapabilityCatalogsEqual.ts"
+      },
+      {
+        "fromPath": "src/features/catalog/isCapabilityCatalog.ts",
+        "toPath": "src/features/catalog/parseCapabilityCatalog.ts",
+        "sourcePath": "src/features/catalog/isCapabilityCatalog.ts"
+      },
+      {
+        "fromPath": "src/features/catalog/normalizeCapabilityCatalog.ts",
+        "toPath": "src/features/capability/normalizeCapability.ts",
+        "sourcePath": "src/features/catalog/normalizeCapabilityCatalog.ts"
+      },
+      {
+        "fromPath": "src/features/catalog/parseCapabilityCatalog.ts",
+        "toPath": "src/features/capability/parseCapability.ts",
+        "sourcePath": "src/features/catalog/parseCapabilityCatalog.ts"
+      }
+    ],
+    "calls": [
+      {
+        "fromSymbol": "tests/capability.test.ts",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "tests/capability.test.ts"
+      },
+      {
+        "fromSymbol": "tests/capability.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "tests/capability.test.ts"
+      },
+      {
+        "fromSymbol": "tests/capability.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "tests/capability.test.ts"
+      },
+      {
+        "fromSymbol": "tests/capability.test.ts",
+        "toSymbol": "isCapabilityId",
+        "callExpression": "isCapabilityId",
+        "sourcePath": "tests/capability.test.ts"
+      },
+      {
+        "fromSymbol": "tests/capability.test.ts",
+        "toSymbol": "isCapability",
+        "callExpression": "isCapability",
+        "sourcePath": "tests/capability.test.ts"
+      },
+      {
+        "fromSymbol": "tests/capability.test.ts",
+        "toSymbol": "parseCapability",
+        "callExpression": "parseCapability",
+        "sourcePath": "tests/capability.test.ts"
+      },
+      {
+        "fromSymbol": "tests/capability.test.ts",
+        "toSymbol": "normalizeCapability",
+        "callExpression": "normalizeCapability",
+        "sourcePath": "tests/capability.test.ts"
+      },
+      {
+        "fromSymbol": "tests/capability.test.ts",
+        "toSymbol": "areCapabilitiesEqual",
+        "callExpression": "areCapabilitiesEqual",
+        "sourcePath": "tests/capability.test.ts"
+      },
+      {
+        "fromSymbol": "tests/capability.test.ts",
+        "toSymbol": "parseCapabilityCatalog",
+        "callExpression": "parseCapabilityCatalog",
+        "sourcePath": "tests/capability.test.ts"
+      },
+      {
+        "fromSymbol": "tests/capability.test.ts",
+        "toSymbol": "isCapabilityCatalog",
+        "callExpression": "isCapabilityCatalog",
+        "sourcePath": "tests/capability.test.ts"
+      },
+      {
+        "fromSymbol": "tests/capability.test.ts",
+        "toSymbol": "normalizeCapabilityCatalog",
+        "callExpression": "normalizeCapabilityCatalog",
+        "sourcePath": "tests/capability.test.ts"
+      },
+      {
+        "fromSymbol": "tests/capability.test.ts",
+        "toSymbol": "areCapabilityCatalogsEqual",
+        "callExpression": "areCapabilityCatalogsEqual",
+        "sourcePath": "tests/capability.test.ts"
+      },
+      {
+        "fromSymbol": "tests/standalone.test.ts",
+        "toSymbol": "fileURLToPath",
+        "callExpression": "fileURLToPath",
+        "sourcePath": "tests/standalone.test.ts"
+      },
+      {
+        "fromSymbol": "tests/standalone.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "tests/standalone.test.ts"
+      },
+      {
+        "fromSymbol": "tests/standalone.test.ts",
+        "toSymbol": "mkdtemp",
+        "callExpression": "mkdtemp",
+        "sourcePath": "tests/standalone.test.ts"
+      },
+      {
+        "fromSymbol": "tests/standalone.test.ts",
+        "toSymbol": "join",
+        "callExpression": "join",
+        "sourcePath": "tests/standalone.test.ts"
+      },
+      {
+        "fromSymbol": "tests/standalone.test.ts",
+        "toSymbol": "tmpdir",
+        "callExpression": "tmpdir",
+        "sourcePath": "tests/standalone.test.ts"
+      },
+      {
+        "fromSymbol": "tests/standalone.test.ts",
+        "toSymbol": "run",
+        "callExpression": "run",
+        "sourcePath": "tests/standalone.test.ts"
+      },
+      {
+        "fromSymbol": "tests/standalone.test.ts",
+        "toSymbol": "readdir",
+        "callExpression": "readdir",
+        "sourcePath": "tests/standalone.test.ts"
+      },
+      {
+        "fromSymbol": "tests/standalone.test.ts",
+        "toSymbol": "mkdir",
+        "callExpression": "mkdir",
+        "sourcePath": "tests/standalone.test.ts"
+      },
+      {
+        "fromSymbol": "tests/standalone.test.ts",
+        "toSymbol": "writeFile",
+        "callExpression": "writeFile",
+        "sourcePath": "tests/standalone.test.ts"
+      },
+      {
+        "fromSymbol": "tests/standalone.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "tests/standalone.test.ts"
+      },
+      {
+        "fromSymbol": "tests/standalone.test.ts",
+        "toSymbol": "rm",
+        "callExpression": "rm",
+        "sourcePath": "tests/standalone.test.ts"
+      },
+      {
+        "fromSymbol": "areCapabilitiesEqual",
+        "toSymbol": "isDeepEqual",
+        "callExpression": "isDeepEqual",
+        "sourcePath": "src/features/capability/areCapabilitiesEqual.ts"
+      },
+      {
+        "fromSymbol": "areCapabilitiesEqual",
+        "toSymbol": "normalizeCapability",
+        "callExpression": "normalizeCapability",
+        "sourcePath": "src/features/capability/areCapabilitiesEqual.ts"
+      },
+      {
+        "fromSymbol": "isCapability",
+        "toSymbol": "parseCapability",
+        "callExpression": "parseCapability",
+        "sourcePath": "src/features/capability/isCapability.ts"
+      },
+      {
+        "fromSymbol": "isCapabilityId",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/features/capability/isCapabilityId.ts"
+      },
+      {
+        "fromSymbol": "normalizeCapability",
+        "toSymbol": "uniqueSortedStrings",
+        "callExpression": "uniqueSortedStrings",
+        "sourcePath": "src/features/capability/normalizeCapability.ts"
+      },
+      {
+        "fromSymbol": "parseCapability",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "parseCapability",
+        "toSymbol": "isCapabilityId",
+        "callExpression": "isCapabilityId",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "parseCapability",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "parseCapability",
+        "toSymbol": "isCapabilityAccessList",
+        "callExpression": "isCapabilityAccessList",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "parseCapability",
+        "toSymbol": "isCapabilityBinding",
+        "callExpression": "isCapabilityBinding",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "parseCapability",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "parseCapability",
+        "toSymbol": "isOptionalDataSchemaSlot",
+        "callExpression": "isOptionalDataSchemaSlot",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isCapabilityBinding",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isCapabilityBinding",
+        "toSymbol": "isCapabilityBindingKind",
+        "callExpression": "isCapabilityBindingKind",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isOptionalDataSchemaSlot",
+        "toSymbol": "isDataSchemaSlot",
+        "callExpression": "isDataSchemaSlot",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchemaSlot",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchemaSlot",
+        "toSymbol": "isDataSchema",
+        "callExpression": "isDataSchema",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchemaSlot",
+        "toSymbol": "isDataSchemaRef",
+        "callExpression": "isDataSchemaRef",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchema",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchema",
+        "toSymbol": "isOptionalDataSchemaType",
+        "callExpression": "isOptionalDataSchemaType",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchema",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchema",
+        "toSymbol": "isOptionalStringArray",
+        "callExpression": "isOptionalStringArray",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchema",
+        "toSymbol": "isOptionalDataSchemaProperties",
+        "callExpression": "isOptionalDataSchemaProperties",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchema",
+        "toSymbol": "isOptionalAdditionalProperties",
+        "callExpression": "isOptionalAdditionalProperties",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchema",
+        "toSymbol": "isDataSchema",
+        "callExpression": "isDataSchema",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchema",
+        "toSymbol": "isOptionalDataSchemaArray",
+        "callExpression": "isOptionalDataSchemaArray",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchema",
+        "toSymbol": "isDataSchemaRef",
+        "callExpression": "isDataSchemaRef",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchema",
+        "toSymbol": "isOptionalSerializableValue",
+        "callExpression": "isOptionalSerializableValue",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchema",
+        "toSymbol": "isOptionalSerializableValueArray",
+        "callExpression": "isOptionalSerializableValueArray",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isOptionalDataSchemaProperties",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isOptionalAdditionalProperties",
+        "toSymbol": "isDataSchema",
+        "callExpression": "isDataSchema",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchemaRef",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isDataSchemaRef",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isOptionalSerializableValue",
+        "toSymbol": "isSerializableValue",
+        "callExpression": "isSerializableValue",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "isSerializableValue",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "areCapabilityCatalogsEqual",
+        "toSymbol": "isDeepEqual",
+        "callExpression": "isDeepEqual",
+        "sourcePath": "src/features/catalog/areCapabilityCatalogsEqual.ts"
+      },
+      {
+        "fromSymbol": "areCapabilityCatalogsEqual",
+        "toSymbol": "normalizeCapabilityCatalog",
+        "callExpression": "normalizeCapabilityCatalog",
+        "sourcePath": "src/features/catalog/areCapabilityCatalogsEqual.ts"
+      },
+      {
+        "fromSymbol": "isCapabilityCatalog",
+        "toSymbol": "parseCapabilityCatalog",
+        "callExpression": "parseCapabilityCatalog",
+        "sourcePath": "src/features/catalog/isCapabilityCatalog.ts"
+      }
+    ],
+    "typeReferences": [
+      {
+        "fromSymbol": "areCapabilitiesEqual",
+        "toType": "Capability",
+        "sourcePath": "src/features/capability/areCapabilitiesEqual.ts"
+      },
+      {
+        "fromSymbol": "normalizeCapability",
+        "toType": "Capability",
+        "sourcePath": "src/features/capability/normalizeCapability.ts"
+      },
+      {
+        "fromSymbol": "parseCapability",
+        "toType": "Capability",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "areCapabilityCatalogsEqual",
+        "toType": "Capability",
+        "sourcePath": "src/features/catalog/areCapabilityCatalogsEqual.ts"
+      },
+      {
+        "fromSymbol": "normalizeCapabilityCatalog",
+        "toType": "Capability",
+        "sourcePath": "src/features/catalog/normalizeCapabilityCatalog.ts"
+      },
+      {
+        "fromSymbol": "parseCapabilityCatalog",
+        "toType": "Capability",
+        "sourcePath": "src/features/catalog/parseCapabilityCatalog.ts"
+      }
+    ],
+    "componentComposition": []
+  }
+}

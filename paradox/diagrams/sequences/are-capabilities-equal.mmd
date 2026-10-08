@@ -1,0 +1,11 @@
+sequenceDiagram
+  participant participant_areCapabilitiesEqual as areCapabilitiesEqual
+  participant participant_isDeepEqual as isDeepEqual
+  participant participant_normalizeCapability as normalizeCapability
+  participant participant_uniqueSortedStrings as uniqueSortedStrings
+  participant_areCapabilitiesEqual->>participant_isDeepEqual: isDeepEqual()
+  participant_isDeepEqual-->>participant_areCapabilitiesEqual: return
+  participant_areCapabilitiesEqual->>participant_normalizeCapability: normalizeCapability()
+  participant_normalizeCapability->>participant_uniqueSortedStrings: uniqueSortedStrings()
+  participant_uniqueSortedStrings-->>participant_normalizeCapability: return
+  participant_normalizeCapability-->>participant_areCapabilitiesEqual: return

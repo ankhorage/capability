@@ -1,0 +1,31 @@
+graph LR
+  module_src_features_capability_areCapabilitiesEqual_ts["src/features/capability/areCapabilitiesEqual.ts"]
+  module_src_features_capability_isCapability_ts["src/features/capability/isCapability.ts"]
+  module_src_features_capability_isCapabilityId_ts["src/features/capability/isCapabilityId.ts"]
+  module_src_features_capability_normalizeCapability_ts["src/features/capability/normalizeCapability.ts"]
+  module_src_features_capability_parseCapability_ts["src/features/capability/parseCapability.ts"]
+  module_src_features_catalog_areCapabilityCatalogsEqual_ts["src/features/catalog/areCapabilityCatalogsEqual.ts"]
+  module_src_features_catalog_isCapabilityCatalog_ts["src/features/catalog/isCapabilityCatalog.ts"]
+  module_src_features_catalog_normalizeCapabilityCatalog_ts["src/features/catalog/normalizeCapabilityCatalog.ts"]
+  module_src_features_catalog_parseCapabilityCatalog_ts["src/features/catalog/parseCapabilityCatalog.ts"]
+  module_src_index_ts["src/index.ts"]
+  module_tests_capability_test_ts["tests/capability.test.ts"]
+  module_tests_standalone_test_ts["tests/standalone.test.ts"]
+  export_areCapabilitiesEqual["areCapabilitiesEqual"]
+  module_src_features_capability_areCapabilitiesEqual_ts --> export_areCapabilitiesEqual
+  export_areCapabilityCatalogsEqual["areCapabilityCatalogsEqual"]
+  module_src_features_catalog_areCapabilityCatalogsEqual_ts --> export_areCapabilityCatalogsEqual
+  export_isCapability["isCapability"]
+  module_src_features_capability_isCapability_ts --> export_isCapability
+  export_isCapabilityCatalog["isCapabilityCatalog"]
+  module_src_features_catalog_isCapabilityCatalog_ts --> export_isCapabilityCatalog
+  export_isCapabilityId["isCapabilityId"]
+  module_src_features_capability_isCapabilityId_ts --> export_isCapabilityId
+  export_normalizeCapability["normalizeCapability"]
+  module_src_features_capability_normalizeCapability_ts --> export_normalizeCapability
+  export_normalizeCapabilityCatalog["normalizeCapabilityCatalog"]
+  module_src_features_catalog_normalizeCapabilityCatalog_ts --> export_normalizeCapabilityCatalog
+  export_parseCapability["parseCapability"]
+  module_src_features_capability_parseCapability_ts --> export_parseCapability
+  export_parseCapabilityCatalog["parseCapabilityCatalog"]
+  module_src_features_catalog_parseCapabilityCatalog_ts --> export_parseCapabilityCatalog
