@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ankhorage/capability • Paradox</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #f5f7fb;
+        color: #11203b;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; }
+      a { color: #2459d3; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      button { font: inherit; }
+      code, pre { font-family: "SFMono-Regular", ui-monospace, SFMono-Regular, Menlo, monospace; }
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
+        min-height: 100vh;
+      }
+      .sidebar {
+        padding: 1.5rem;
+        border-right: 1px solid #d8dfec;
+        background: #ffffff;
+        position: sticky;
+        top: 0;
+        max-height: 100vh;
+        overflow: auto;
+      }
+      .content { padding: 2rem; }
+      .panel, .item {
+        background: #ffffff;
+        border: 1px solid #d8dfec;
+        border-radius: 0.9rem;
+        padding: 1rem 1.2rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 8px 24px rgba(17, 32, 59, 0.06);
+      }
+      .summary {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+      }
+      .summary strong {
+        display: block;
+        font-size: 1.5rem;
+      }
+      .search {
+        width: 100%;
+        padding: 0.75rem 0.9rem;
+        border-radius: 0.75rem;
+        border: 1px solid #c7d2e5;
+        margin: 1rem 0 1.5rem;
+      }
+      .nav-list, .meta-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .nav-list li + li { margin-top: 0.5rem; }
+      .nav-button {
+        width: 100%;
+        display: block;
+        border: 0;
+        border-radius: 0.7rem;
+        background: transparent;
+        color: #24427a;
+        cursor: pointer;
+        padding: 0.55rem 0.7rem;
+        text-align: left;
+      }
+      .nav-button:hover, .nav-button[aria-current="page"] {
+        background: #e8eefb;
+        text-decoration: none;
+      }
+      .nav-button small {
+        display: block;
+        color: #5e6d8c;
+        margin-top: 0.15rem;
+      }
+      .view[hidden] { display: none; }
+      .muted { color: #5e6d8c; }
+      .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0; list-style: none; }
+      .chip {
+        border-radius: 999px;
+        background: #e8eefb;
+        color: #24427a;
+        padding: 0.25rem 0.65rem;
+        font-size: 0.85rem;
+      }
+      table { width: 100%; border-collapse: collapse; margin-top: 0.8rem; }
+      th, td { padding: 0.6rem; border-bottom: 1px solid #e2e7f2; text-align: left; vertical-align: top; }
+      pre {
+        overflow: auto;
+        border-radius: 0.75rem;
+        background: #0f1729;
+        color: #e7edf7;
+        padding: 1rem;
+      }
+      .empty { font-style: italic; color: #6f7f9c; }
+      .mermaid { margin: 1rem 0; overflow: auto; }
+      details > summary { cursor: pointer; color: #5e6d8c; font-size: 0.9rem; margin-top: 0.5rem; user-select: none; }
+      @media (max-width: 900px) {
+        .layout { grid-template-columns: 1fr; }
+        .sidebar { position: static; max-height: none; border-right: 0; border-bottom: 1px solid #d8dfec; }
+        .content { padding: 1rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <p class="muted">Generated with Paradox</p>
+        <h1>@ankhorage/capability</h1>
+        <p>Generic runtime validation, normalization, equality, and catalog operations for Ankhorage capabilities.</p>
+        <input id="search" class="search" type="search" placeholder="Search current view" />
+        <nav aria-label="Documentation sections">
+          <ul class="nav-list">
+            <li>
+              <button class="nav-button" type="button" data-target="home" aria-current="page">
+                Home
+                <small>Overview, CLI, public API, diagrams</small>
+              </button>
+            </li>
+            <li>
+    <button class="nav-button" type="button" data-target="src/features/capability/areCapabilitiesEqual.ts">
+      src/features/capability/areCapabilitiesEqual.ts
+      <small>1 function</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/features/capability/isCapability.ts">
+      src/features/capability/isCapability.ts
+      <small>1 function</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/features/capability/isCapabilityId.ts">
+      src/features/capability/isCapabilityId.ts
+      <small>1 function</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/features/capability/normalizeCapability.ts">
+      src/features/capability/normalizeCapability.ts
+      <small>3 functions</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/features/capability/parseCapability.ts">
+      src/features/capability/parseCapability.ts
+      <small>18 functions</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/features/catalog/areCapabilityCatalogsEqual.ts">
+      src/features/catalog/areCapabilityCatalogsEqual.ts
+      <small>1 function</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/features/catalog/isCapabilityCatalog.ts">
+      src/features/catalog/isCapabilityCatalog.ts
+      <small>1 function</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/features/catalog/normalizeCapabilityCatalog.ts">
+      src/features/catalog/normalizeCapabilityCatalog.ts
+      <small>1 function</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/features/catalog/parseCapabilityCatalog.ts">
+      src/features/catalog/parseCapabilityCatalog.ts
+      <small>1 function</small>
+    </button>
+  </li>
+          </ul>
+        </nav>
+      </aside>
+      <main class="content">
+        <section id="view-home" class="view" data-view="home">
+          
+    <section class="panel">
+      <h2>Package overview</h2>
+      <div class="summary">
+        <div><strong>9</strong><span class="muted">public exports</span></div>
+        <div><strong>0</strong><span class="muted">components</span></div>
+        <div><strong>12</strong><span class="muted">modules</span></div>
+        <div><strong>1</strong><span class="muted">entrypoints</span></div>
+      </div>
+      <h3>Entrypoints</h3>
+      <ul class="meta-list">
+        <li><code>src/index.ts</code></li>
+      </ul>
+    </section>
+    
+    <section class="panel"><h2>Policy</h2><p>No documentation findings.</p></section>
+    <section class="panel">
+      <h2>Modules</h2>
+      <article class="item" data-search="src/features/capability/areCapabilitiesEqual.ts src/features/capability/normalizeCapability.ts areCapabilitiesEqual">
+    <h3>src/features/capability/areCapabilitiesEqual.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/features/capability/normalizeCapability.ts</code></p>
+    <p><strong>Exports:</strong> <code>areCapabilitiesEqual</code></p>
+  </article><article class="item" data-search="src/features/capability/isCapability.ts src/features/capability/parseCapability.ts isCapability">
+    <h3>src/features/capability/isCapability.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/features/capability/parseCapability.ts</code></p>
+    <p><strong>Exports:</strong> <code>isCapability</code></p>
+  </article><article class="item" data-search="src/features/capability/isCapabilityId.ts isCapabilityId">
+    <h3>src/features/capability/isCapabilityId.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+    <p><strong>Exports:</strong> <code>isCapabilityId</code></p>
+  </article><article class="item" data-search="src/features/capability/normalizeCapability.ts normalizeCapability">
+    <h3>src/features/capability/normalizeCapability.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+    <p><strong>Exports:</strong> <code>normalizeCapability</code></p>
+  </article><article class="item" data-search="src/features/capability/parseCapability.ts src/features/capability/isCapabilityId.ts parseCapability">
+    <h3>src/features/capability/parseCapability.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/features/capability/isCapabilityId.ts</code></p>
+    <p><strong>Exports:</strong> <code>parseCapability</code></p>
+  </article><article class="item" data-search="src/features/catalog/areCapabilityCatalogsEqual.ts src/features/catalog/normalizeCapabilityCatalog.ts areCapabilityCatalogsEqual">
+    <h3>src/features/catalog/areCapabilityCatalogsEqual.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/features/catalog/normalizeCapabilityCatalog.ts</code></p>
+    <p><strong>Exports:</strong> <code>areCapabilityCatalogsEqual</code></p>
+  </article><article class="item" data-search="src/features/catalog/isCapabilityCatalog.ts src/features/catalog/parseCapabilityCatalog.ts isCapabilityCatalog">
+    <h3>src/features/catalog/isCapabilityCatalog.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/features/catalog/parseCapabilityCatalog.ts</code></p>
+    <p><strong>Exports:</strong> <code>isCapabilityCatalog</code></p>
+  </article><article class="item" data-search="src/features/catalog/normalizeCapabilityCatalog.ts src/features/capability/normalizeCapability.ts normalizeCapabilityCatalog">
+    <h3>src/features/catalog/normalizeCapabilityCatalog.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/features/capability/normalizeCapability.ts</code></p>
+    <p><strong>Exports:</strong> <code>normalizeCapabilityCatalog</code></p>
+  </article><article class="item" data-search="src/features/catalog/parseCapabilityCatalog.ts src/features/capability/parseCapability.ts parseCapabilityCatalog">
+    <h3>src/features/catalog/parseCapabilityCatalog.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/features/capability/parseCapability.ts</code></p>
+    <p><strong>Exports:</strong> <code>parseCapabilityCatalog</code></p>
+  </article><article class="item" data-search="src/index.ts areCapabilitiesEqual areCapabilityCatalogsEqual isCapability isCapabilityCatalog isCapabilityId normalizeCapability normalizeCapabilityCatalog parseCapability parseCapabilityCatalog">
+    <h3>src/index.ts</h3>
+    <p class="muted">Configured entrypoint</p>
+    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+    <p><strong>Exports:</strong> <code>areCapabilitiesEqual</code>, <code>areCapabilityCatalogsEqual</code>, <code>isCapability</code>, <code>isCapabilityCatalog</code>, <code>isCapabilityId</code>, <code>normalizeCapability</code>, <code>normalizeCapabilityCatalog</code>, <code>parseCapability</code>, <code>parseCapabilityCatalog</code></p>
+  </article><article class="item" data-search="tests/capability.test.ts src/index.ts">
+    <h3>tests/capability.test.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/index.ts</code></p>
+    <p><strong>Exports:</strong> <span class="empty">None</span></p>
+  </article><article class="item" data-search="tests/standalone.test.ts">
+    <h3>tests/standalone.test.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+    <p><strong>Exports:</strong> <span class="empty">None</span></p>
+  </article>
+    </section>
+    <section class="panel">
+      <h2>Public API</h2>
+      
+            <section>
+              <h3>src/features/capability/areCapabilitiesEqual.ts</h3>
+              <article class="item" id="symbol-arecapabilitiesequal" data-search="areCapabilitiesEqual  function src/features/capability/areCapabilitiesEqual.ts Compare capability descriptors independently of record keys and unordered collection ordering. (left: Capability, right: Capability) =&gt; boolean">
+    <h4>areCapabilitiesEqual</h4>
+    
+    <p class="muted">function • <code>src/features/capability/areCapabilitiesEqual.ts:7:1</code></p>
+    <p>Compare capability descriptors independently of record keys and unordered collection ordering.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    <div>
+        <h5>Signature</h5>
+        <pre>(left: Capability, right: Capability) =&gt; boolean</pre>
+        <table>
+                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr>
+                        <td><code>left</code></td>
+                        <td><code>Capability</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr><tr>
+                        <td><code>right</code></td>
+                        <td><code>Capability</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                </tbody>
+              </table>
+        <p><strong>Returns:</strong> <code>boolean</code></p>
+      </div>
+    
+  </article>
+            </section>
+            <section>
+              <h3>src/features/capability/isCapability.ts</h3>
+              <article class="item" id="symbol-iscapability" data-search="isCapability  function src/features/capability/isCapability.ts Validate an untrusted value as one complete portable capability descriptor. (value: unknown) =&gt; boolean">
+    <h4>isCapability</h4>
+    
+    <p class="muted">function • <code>src/features/capability/isCapability.ts:6:1</code></p>
+    <p>Validate an untrusted value as one complete portable capability descriptor.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    <div>
+        <h5>Signature</h5>
+        <pre>(value: unknown) =&gt; boolean</pre>
+        <table>
+                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr>
+                        <td><code>value</code></td>
+                        <td><code>unknown</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                </tbody>
+              </table>
+        <p><strong>Returns:</strong> <code>boolean</code></p>
+      </div>
+    
+  </article>
+            </section>
+            <section>
+              <h3>src/features/capability/isCapabilityId.ts</h3>
+              <article class="item" id="symbol-iscapabilityid" data-search="isCapabilityId  function src/features/capability/isCapabilityId.ts Validate a stable dot-separated identifier for one capability. (value: unknown) =&gt; boolean">
+    <h4>isCapabilityId</h4>
+    
+    <p class="muted">function • <code>src/features/capability/isCapabilityId.ts:5:1</code></p>
+    <p>Validate a stable dot-separated identifier for one capability.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    <div>
+        <h5>Signature</h5>
+        <pre>(value: unknown) =&gt; boolean</pre>
+        <table>
+                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr>
+                        <td><code>value</code></td>
+                        <td><code>unknown</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                </tbody>
+              </table>
+        <p><strong>Returns:</strong> <code>boolean</code></p>
+      </div>
+    
+  </article>
+            </section>
+            <section>
+              <h3>src/features/capability/normalizeCapability.ts</h3>
+              <article class="item" id="symbol-normalizecapability" data-search="normalizeCapability  function src/features/capability/normalizeCapability.ts Return a capability with unordered access and binding-role collections sorted and deduplicated. (capability: Capability) =&gt; Capability">
+    <h4>normalizeCapability</h4>
+    
+    <p class="muted">function • <code>src/features/capability/normalizeCapability.ts:8:1</code></p>
+    <p>Return a capability with unordered access and binding-role collections sorted and deduplicated.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    <div>
+        <h5>Signature</h5>
+        <pre>(capability: Capability) =&gt; Capability</pre>
+        <table>
+                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr>
+                        <td><code>capability</code></td>
+                        <td><code>Capability</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                </tbody>
+              </table>
+        <p><strong>Returns:</strong> <code>Capability</code></p>
+      </div>
+    
+  </article>
+            </section>
+            <section>
+              <h3>src/features/capability/parseCapability.ts</h3>
+              <article class="item" id="symbol-parsecapability" data-search="parseCapability  function src/features/capability/parseCapability.ts Parse one complete portable capability descriptor from an untrusted value. (value: unknown) =&gt; Capability | null">
+    <h4>parseCapability</h4>
+    
+    <p class="muted">function • <code>src/features/capability/parseCapability.ts:22:1</code></p>
+    <p>Parse one complete portable capability descriptor from an untrusted value.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    <div>
+        <h5>Signature</h5>
+        <pre>(value: unknown) =&gt; Capability | null</pre>
+        <table>
+                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr>
+                        <td><code>value</code></td>
+                        <td><code>unknown</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                </tbody>
+              </table>
+        <p><strong>Returns:</strong> <code>Capability | null</code></p>
+      </div>
+    
+  </article>
+            </section>
+            <section>
+              <h3>src/features/catalog/areCapabilityCatalogsEqual.ts</h3>
+              <article class="item" id="symbol-arecapabilitycatalogsequal" data-search="areCapabilityCatalogsEqual  function src/features/catalog/areCapabilityCatalogsEqual.ts Compare capability catalogs independently of authored catalog and unordered descriptor collection ordering. (left: readonly Capability[], right: readonly Capability[]) =&gt; boolean">
+    <h4>areCapabilityCatalogsEqual</h4>
+    
+    <p class="muted">function • <code>src/features/catalog/areCapabilityCatalogsEqual.ts:7:1</code></p>
+    <p>Compare capability catalogs independently of authored catalog and unordered descriptor collection ordering.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    <div>
+        <h5>Signature</h5>
+        <pre>(left: readonly Capability[], right: readonly Capability[]) =&gt; boolean</pre>
+        <table>
+                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr>
+                        <td><code>left</code></td>
+                        <td><code>readonly Capability[]</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr><tr>
+                        <td><code>right</code></td>
+                        <td><code>readonly Capability[]</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                </tbody>
+              </table>
+        <p><strong>Returns:</strong> <code>boolean</code></p>
+      </div>
+    
+  </article>
+            </section>
+            <section>
+              <h3>src/features/catalog/isCapabilityCatalog.ts</h3>
+              <article class="item" id="symbol-iscapabilitycatalog" data-search="isCapabilityCatalog  function src/features/catalog/isCapabilityCatalog.ts Validate a capability catalog with complete descriptors and unique stable identifiers. (value: unknown) =&gt; boolean">
+    <h4>isCapabilityCatalog</h4>
+    
+    <p class="muted">function • <code>src/features/catalog/isCapabilityCatalog.ts:6:1</code></p>
+    <p>Validate a capability catalog with complete descriptors and unique stable identifiers.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    <div>
+        <h5>Signature</h5>
+        <pre>(value: unknown) =&gt; boolean</pre>
+        <table>
+                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr>
+                        <td><code>value</code></td>
+                        <td><code>unknown</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                </tbody>
+              </table>
+        <p><strong>Returns:</strong> <code>boolean</code></p>
+      </div>
+    
+  </article>
+            </section>
+            <section>
+              <h3>src/features/catalog/normalizeCapabilityCatalog.ts</h3>
+              <article class="item" id="symbol-normalizecapabilitycatalog" data-search="normalizeCapabilityCatalog  function src/features/catalog/normalizeCapabilityCatalog.ts Normalize trusted catalog descriptors and sort them by stable capability identifier. (catalog: readonly Capability[]) =&gt; readonly Capability[]">
+    <h4>normalizeCapabilityCatalog</h4>
+    
+    <p class="muted">function • <code>src/features/catalog/normalizeCapabilityCatalog.ts:6:1</code></p>
+    <p>Normalize trusted catalog descriptors and sort them by stable capability identifier.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    <div>
+        <h5>Signature</h5>
+        <pre>(catalog: readonly Capability[]) =&gt; readonly Capability[]</pre>
+        <table>
+                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr>
+                        <td><code>catalog</code></td>
+                        <td><code>readonly Capability[]</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                </tbody>
+              </table>
+        <p><strong>Returns:</strong> <code>readonly Capability[]</code></p>
+      </div>
+    
+  </article>
+            </section>
+            <section>
+              <h3>src/features/catalog/parseCapabilityCatalog.ts</h3>
+              <article class="item" id="symbol-parsecapabilitycatalog" data-search="parseCapabilityCatalog  function src/features/catalog/parseCapabilityCatalog.ts Parse a capability catalog and reject invalid descriptors or duplicate stable identifiers. (value: unknown) =&gt; readonly Capability[] | null">
+    <h4>parseCapabilityCatalog</h4>
+    
+    <p class="muted">function • <code>src/features/catalog/parseCapabilityCatalog.ts:6:1</code></p>
+    <p>Parse a capability catalog and reject invalid descriptors or duplicate stable identifiers.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    <div>
+        <h5>Signature</h5>
+        <pre>(value: unknown) =&gt; readonly Capability[] | null</pre>
+        <table>
+                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr>
+                        <td><code>value</code></td>
+                        <td><code>unknown</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                </tbody>
+              </table>
+        <p><strong>Returns:</strong> <code>readonly Capability[] | null</code></p>
+      </div>
+    
+  </article>
+            </section>
+    </section>
+    <section class="panel">
+      <h2>Component registry</h2>
+      <p class="empty">No components were detected.</p>
+    </section>
+    <section class="panel">
+      <h2>Diagrams</h2>
+      <article class="item" data-search="Architecture overview diagrams/architecture-overview.mmd">
+    <h3>Architecture overview</h3>
+    <p class="muted"><code>diagrams/architecture-overview.mmd</code></p>
+    <div class="mermaid">graph TD
+  package__ankhorage_capability[&quot;@ankhorage/capability&quot;]
+  entrypoint_src_index_ts[&quot;src/index.ts&quot;]
+  package__ankhorage_capability --&gt; entrypoint_src_index_ts
+  module_src_features_capability_areCapabilitiesEqual_ts[&quot;src/features/capability/areCapabilitiesEqual.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_src_features_capability_areCapabilitiesEqual_ts
+  module_src_features_capability_areCapabilitiesEqual_ts --&gt; module_src_features_capability_normalizeCapability_ts
+  module_src_features_capability_isCapability_ts[&quot;src/features/capability/isCapability.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_src_features_capability_isCapability_ts
+  module_src_features_capability_isCapability_ts --&gt; module_src_features_capability_parseCapability_ts
+  module_src_features_capability_isCapabilityId_ts[&quot;src/features/capability/isCapabilityId.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_src_features_capability_isCapabilityId_ts
+  module_src_features_capability_normalizeCapability_ts[&quot;src/features/capability/normalizeCapability.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_src_features_capability_normalizeCapability_ts
+  module_src_features_capability_parseCapability_ts[&quot;src/features/capability/parseCapability.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_src_features_capability_parseCapability_ts
+  module_src_features_capability_parseCapability_ts --&gt; module_src_features_capability_isCapabilityId_ts
+  module_src_features_catalog_areCapabilityCatalogsEqual_ts[&quot;src/features/catalog/areCapabilityCatalogsEqual.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_src_features_catalog_areCapabilityCatalogsEqual_ts
+  module_src_features_catalog_areCapabilityCatalogsEqual_ts --&gt; module_src_features_catalog_normalizeCapabilityCatalog_ts
+  module_src_features_catalog_isCapabilityCatalog_ts[&quot;src/features/catalog/isCapabilityCatalog.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_src_features_catalog_isCapabilityCatalog_ts
+  module_src_features_catalog_isCapabilityCatalog_ts --&gt; module_src_features_catalog_parseCapabilityCatalog_ts
+  module_src_features_catalog_normalizeCapabilityCatalog_ts[&quot;src/features/catalog/normalizeCapabilityCatalog.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_src_features_catalog_normalizeCapabilityCatalog_ts
+  module_src_features_catalog_normalizeCapabilityCatalog_ts --&gt; module_src_features_capability_normalizeCapability_ts
+  module_src_features_catalog_parseCapabilityCatalog_ts[&quot;src/features/catalog/parseCapabilityCatalog.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_src_features_catalog_parseCapabilityCatalog_ts
+  module_src_features_catalog_parseCapabilityCatalog_ts --&gt; module_src_features_capability_parseCapability_ts
+  module_src_index_ts[&quot;src/index.ts&quot;]
+  module_tests_capability_test_ts[&quot;tests/capability.test.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_tests_capability_test_ts
+  module_tests_capability_test_ts --&gt; module_src_index_ts
+  module_tests_standalone_test_ts[&quot;tests/standalone.test.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_tests_standalone_test_ts
+</div>
+    <details>
+      <summary>View Mermaid source</summary>
+      <pre>graph TD
+  package__ankhorage_capability[&quot;@ankhorage/capability&quot;]
+  entrypoint_src_index_ts[&quot;src/index.ts&quot;]
+  package__ankhorage_capability --&gt; entrypoint_src_index_ts
+  module_src_features_capability_areCapabilitiesEqual_ts[&quot;src/features/capability/areCapabilitiesEqual.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_src_features_capability_areCapabilitiesEqual_ts
+  module_src_features_capability_areCapabilitiesEqual_ts --&gt; module_src_features_capability_normalizeCapability_ts
+  module_src_features_capability_isCapability_ts[&quot;src/features/capability/isCapability.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_src_features_capability_isCapability_ts
+  module_src_features_capability_isCapability_ts --&gt; module_src_features_capability_parseCapability_ts
+  module_src_features_capability_isCapabilityId_ts[&quot;src/features/capability/isCapabilityId.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_src_features_capability_isCapabilityId_ts
+  module_src_features_capability_normalizeCapability_ts[&quot;src/features/capability/normalizeCapability.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_src_features_capability_normalizeCapability_ts
+  module_src_features_capability_parseCapability_ts[&quot;src/features/capability/parseCapability.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_src_features_capability_parseCapability_ts
+  module_src_features_capability_parseCapability_ts --&gt; module_src_features_capability_isCapabilityId_ts
+  module_src_features_catalog_areCapabilityCatalogsEqual_ts[&quot;src/features/catalog/areCapabilityCatalogsEqual.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_src_features_catalog_areCapabilityCatalogsEqual_ts
+  module_src_features_catalog_areCapabilityCatalogsEqual_ts --&gt; module_src_features_catalog_normalizeCapabilityCatalog_ts
+  module_src_features_catalog_isCapabilityCatalog_ts[&quot;src/features/catalog/isCapabilityCatalog.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_src_features_catalog_isCapabilityCatalog_ts
+  module_src_features_catalog_isCapabilityCatalog_ts --&gt; module_src_features_catalog_parseCapabilityCatalog_ts
+  module_src_features_catalog_normalizeCapabilityCatalog_ts[&quot;src/features/catalog/normalizeCapabilityCatalog.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_src_features_catalog_normalizeCapabilityCatalog_ts
+  module_src_features_catalog_normalizeCapabilityCatalog_ts --&gt; module_src_features_capability_normalizeCapability_ts
+  module_src_features_catalog_parseCapabilityCatalog_ts[&quot;src/features/catalog/parseCapabilityCatalog.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_src_features_catalog_parseCapabilityCatalog_ts
+  module_src_features_catalog_parseCapabilityCatalog_ts --&gt; module_src_features_capability_parseCapability_ts
+  module_src_index_ts[&quot;src/index.ts&quot;]
+  module_tests_capability_test_ts[&quot;tests/capability.test.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_tests_capability_test_ts
+  module_tests_capability_test_ts --&gt; module_src_index_ts
+  module_tests_standalone_test_ts[&quot;tests/standalone.test.ts&quot;]
+  package__ankhorage_capability -.-&gt; module_tests_standalone_test_ts
+</pre>
+    </details>
+  </article><article class="item" data-search="Module relationships diagrams/module-relationships.mmd">
+    <h3>Module relationships</h3>
+    <p class="muted"><code>diagrams/module-relationships.mmd</code></p>
+    <div class="mermaid">graph LR
+  module_src_features_capability_areCapabilitiesEqual_ts[&quot;src/features/capability/areCapabilitiesEqual.ts&quot;]
+  module_src_features_capability_isCapability_ts[&quot;src/features/capability/isCapability.ts&quot;]
+  module_src_features_capability_isCapabilityId_ts[&quot;src/features/capability/isCapabilityId.ts&quot;]
+  module_src_features_capability_normalizeCapability_ts[&quot;src/features/capability/normalizeCapability.ts&quot;]
+  module_src_features_capability_parseCapability_ts[&quot;src/features/capability/parseCapability.ts&quot;]
+  module_src_features_catalog_areCapabilityCatalogsEqual_ts[&quot;src/features/catalog/areCapabilityCatalogsEqual.ts&quot;]
+  module_src_features_catalog_isCapabilityCatalog_ts[&quot;src/features/catalog/isCapabilityCatalog.ts&quot;]
+  module_src_features_catalog_normalizeCapabilityCatalog_ts[&quot;src/features/catalog/normalizeCapabilityCatalog.ts&quot;]
+  module_src_features_catalog_parseCapabilityCatalog_ts[&quot;src/features/catalog/parseCapabilityCatalog.ts&quot;]
+  module_src_index_ts[&quot;src/index.ts&quot;]
+  module_tests_capability_test_ts[&quot;tests/capability.test.ts&quot;]
+  module_tests_standalone_test_ts[&quot;tests/standalone.test.ts&quot;]
+  module_src_features_capability_areCapabilitiesEqual_ts --&gt; module_src_features_capability_normalizeCapability_ts
+  module_src_features_capability_isCapability_ts --&gt; module_src_features_capability_parseCapability_ts
+  module_src_features_capability_parseCapability_ts --&gt; module_src_features_capability_isCapabilityId_ts
+  module_src_features_catalog_areCapabilityCatalogsEqual_ts --&gt; module_src_features_catalog_normalizeCapabilityCatalog_ts
+  module_src_features_catalog_isCapabilityCatalog_ts --&gt; module_src_features_catalog_parseCapabilityCatalog_ts
+  module_src_features_catalog_normalizeCapabilityCatalog_ts --&gt; module_src_features_capability_normalizeCapability_ts
+  module_src_features_catalog_parseCapabilityCatalog_ts --&gt; module_src_features_capability_parseCapability_ts
+  module_tests_capability_test_ts --&gt; module_src_index_ts
+</div>
+    <details>
+      <summary>View Mermaid source</summary>
+      <pre>graph LR
+  module_src_features_capability_areCapabilitiesEqual_ts[&quot;src/features/capability/areCapabilitiesEqual.ts&quot;]
+  module_src_features_capability_isCapability_ts[&quot;src/features/capability/isCapability.ts&quot;]
+  module_src_features_capability_isCapabilityId_ts[&quot;src/features/capability/isCapabilityId.ts&quot;]
+  module_src_features_capability_normalizeCapability_ts[&quot;src/features/capability/normalizeCapability.ts&quot;]
+  module_src_features_capability_parseCapability_ts[&quot;src/features/capability/parseCapability.ts&quot;]
+  module_src_features_catalog_areCapabilityCatalogsEqual_ts[&quot;src/features/catalog/areCapabilityCatalogsEqual.ts&quot;]
+  module_src_features_catalog_isCapabilityCatalog_ts[&quot;src/features/catalog/isCapabilityCatalog.ts&quot;]
+  module_src_features_catalog_normalizeCapabilityCatalog_ts[&quot;src/features/catalog/normalizeCapabilityCatalog.ts&quot;]
+  module_src_features_catalog_parseCapabilityCatalog_ts[&quot;src/features/catalog/parseCapabilityCatalog.ts&quot;]
+  module_src_index_ts[&quot;src/index.ts&quot;]
+  module_tests_capability_test_ts[&quot;tests/capability.test.ts&quot;]
+  module_tests_standalone_test_ts[&quot;tests/standalone.test.ts&quot;]
+  module_src_features_capability_areCapabilitiesEqual_ts --&gt; module_src_features_capability_normalizeCapability_ts
+  module_src_features_capability_isCapability_ts --&gt; module_src_features_capability_parseCapability_ts
+  module_src_features_capability_parseCapability_ts --&gt; module_src_features_capability_isCapabilityId_ts
+  module_src_features_catalog_areCapabilityCatalogsEqual_ts --&gt; module_src_features_catalog_normalizeCapabilityCatalog_ts
+  module_src_features_catalog_isCapabilityCatalog_ts --&gt; module_src_features_catalog_parseCapabilityCatalog_ts
+  module_src_features_catalog_normalizeCapabilityCatalog_ts --&gt; module_src_features_capability_normalizeCapability_ts
+  module_src_features_catalog_parseCapabilityCatalog_ts --&gt; module_src_features_capability_parseCapability_ts
+  module_tests_capability_test_ts --&gt; module_src_index_ts
+</pre>
+    </details>
+  </article><article class="item" data-search="Export graph diagrams/export-graph.mmd">
+    <h3>Export graph</h3>
+    <p class="muted"><code>diagrams/export-graph.mmd</code></p>
+    <div class="mermaid">graph LR
+  module_src_features_capability_areCapabilitiesEqual_ts[&quot;src/features/capability/areCapabilitiesEqual.ts&quot;]
+  module_src_features_capability_isCapability_ts[&quot;src/features/capability/isCapability.ts&quot;]
+  module_src_features_capability_isCapabilityId_ts[&quot;src/features/capability/isCapabilityId.ts&quot;]
+  module_src_features_capability_normalizeCapability_ts[&quot;src/features/capability/normalizeCapability.ts&quot;]
+  module_src_features_capability_parseCapability_ts[&quot;src/features/capability/parseCapability.ts&quot;]
+  module_src_features_catalog_areCapabilityCatalogsEqual_ts[&quot;src/features/catalog/areCapabilityCatalogsEqual.ts&quot;]
+  module_src_features_catalog_isCapabilityCatalog_ts[&quot;src/features/catalog/isCapabilityCatalog.ts&quot;]
+  module_src_features_catalog_normalizeCapabilityCatalog_ts[&quot;src/features/catalog/normalizeCapabilityCatalog.ts&quot;]
+  module_src_features_catalog_parseCapabilityCatalog_ts[&quot;src/features/catalog/parseCapabilityCatalog.ts&quot;]
+  module_src_index_ts[&quot;src/index.ts&quot;]
+  module_tests_capability_test_ts[&quot;tests/capability.test.ts&quot;]
+  module_tests_standalone_test_ts[&quot;tests/standalone.test.ts&quot;]
+  export_areCapabilitiesEqual[&quot;areCapabilitiesEqual&quot;]
+  module_src_features_capability_areCapabilitiesEqual_ts --&gt; export_areCapabilitiesEqual
+  export_areCapabilityCatalogsEqual[&quot;areCapabilityCatalogsEqual&quot;]
+  module_src_features_catalog_areCapabilityCatalogsEqual_ts --&gt; export_areCapabilityCatalogsEqual
+  export_isCapability[&quot;isCapability&quot;]
+  module_src_features_capability_isCapability_ts --&gt; export_isCapability
+  export_isCapabilityCatalog[&quot;isCapabilityCatalog&quot;]
+  module_src_features_catalog_isCapabilityCatalog_ts --&gt; export_isCapabilityCatalog
+  export_isCapabilityId[&quot;isCapabilityId&quot;]
+  module_src_features_capability_isCapabilityId_ts --&gt; export_isCapabilityId
+  export_normalizeCapability[&quot;normalizeCapability&quot;]
+  module_src_features_capability_normalizeCapability_ts --&gt; export_normalizeCapability
+  export_normalizeCapabilityCatalog[&quot;normalizeCapabilityCatalog&quot;]
+  module_src_features_catalog_normalizeCapabilityCatalog_ts --&gt; export_normalizeCapabilityCatalog
+  export_parseCapability[&quot;parseCapability&quot;]
+  module_src_features_capability_parseCapability_ts --&gt; export_parseCapability
+  export_parseCapabilityCatalog[&quot;parseCapabilityCatalog&quot;]
+  module_src_features_catalog_parseCapabilityCatalog_ts --&gt; export_parseCapabilityCatalog
+</div>
+    <details>
+      <summary>View Mermaid source</summary>
+      <pre>graph LR
+  module_src_features_capability_areCapabilitiesEqual_ts[&quot;src/features/capability/areCapabilitiesEqual.ts&quot;]
+  module_src_features_capability_isCapability_ts[&quot;src/features/capability/isCapability.ts&quot;]
+  module_src_features_capability_isCapabilityId_ts[&quot;src/features/capability/isCapabilityId.ts&quot;]
+  module_src_features_capability_normalizeCapability_ts[&quot;src/features/capability/normalizeCapability.ts&quot;]
+  module_src_features_capability_parseCapability_ts[&quot;src/features/capability/parseCapability.ts&quot;]
+  module_src_features_catalog_areCapabilityCatalogsEqual_ts[&quot;src/features/catalog/areCapabilityCatalogsEqual.ts&quot;]
+  module_src_features_catalog_isCapabilityCatalog_ts[&quot;src/features/catalog/isCapabilityCatalog.ts&quot;]
+  module_src_features_catalog_normalizeCapabilityCatalog_ts[&quot;src/features/catalog/normalizeCapabilityCatalog.ts&quot;]
+  module_src_features_catalog_parseCapabilityCatalog_ts[&quot;src/features/catalog/parseCapabilityCatalog.ts&quot;]
+  module_src_index_ts[&quot;src/index.ts&quot;]
+  module_tests_capability_test_ts[&quot;tests/capability.test.ts&quot;]
+  module_tests_standalone_test_ts[&quot;tests/standalone.test.ts&quot;]
+  export_areCapabilitiesEqual[&quot;areCapabilitiesEqual&quot;]
+  module_src_features_capability_areCapabilitiesEqual_ts --&gt; export_areCapabilitiesEqual
+  export_areCapabilityCatalogsEqual[&quot;areCapabilityCatalogsEqual&quot;]
+  module_src_features_catalog_areCapabilityCatalogsEqual_ts --&gt; export_areCapabilityCatalogsEqual
+  export_isCapability[&quot;isCapability&quot;]
+  module_src_features_capability_isCapability_ts --&gt; export_isCapability
+  export_isCapabilityCatalog[&quot;isCapabilityCatalog&quot;]
+  module_src_features_catalog_isCapabilityCatalog_ts --&gt; export_isCapabilityCatalog
+  export_isCapabilityId[&quot;isCapabilityId&quot;]
+  module_src_features_capability_isCapabilityId_ts --&gt; export_isCapabilityId
+  export_normalizeCapability[&quot;normalizeCapability&quot;]
+  module_src_features_capability_normalizeCapability_ts --&gt; export_normalizeCapability
+  export_normalizeCapabilityCatalog[&quot;normalizeCapabilityCatalog&quot;]
+  module_src_features_catalog_normalizeCapabilityCatalog_ts --&gt; export_normalizeCapabilityCatalog
+  export_parseCapability[&quot;parseCapability&quot;]
+  module_src_features_capability_parseCapability_ts --&gt; export_parseCapability
+  export_parseCapabilityCatalog[&quot;parseCapabilityCatalog&quot;]
+  module_src_features_catalog_parseCapabilityCatalog_ts --&gt; export_parseCapabilityCatalog
+</pre>
+    </details>
+  </article><article class="item" data-search="areCapabilitiesEqual sequence diagrams/sequences/are-capabilities-equal.mmd">
+    <h3>areCapabilitiesEqual sequence</h3>
+    <p class="muted"><code>diagrams/sequences/are-capabilities-equal.mmd</code></p>
+    <div class="mermaid">sequenceDiagram
+  participant participant_areCapabilitiesEqual as areCapabilitiesEqual
+  participant participant_isDeepEqual as isDeepEqual
+  participant participant_normalizeCapability as normalizeCapability
+  participant participant_uniqueSortedStrings as uniqueSortedStrings
+  participant_areCapabilitiesEqual-&gt;&gt;participant_isDeepEqual: isDeepEqual()
+  participant_isDeepEqual--&gt;&gt;participant_areCapabilitiesEqual: return
+  participant_areCapabilitiesEqual-&gt;&gt;participant_normalizeCapability: normalizeCapability()
+  participant_normalizeCapability-&gt;&gt;participant_uniqueSortedStrings: uniqueSortedStrings()
+  participant_uniqueSortedStrings--&gt;&gt;participant_normalizeCapability: return
+  participant_normalizeCapability--&gt;&gt;participant_areCapabilitiesEqual: return
+</div>
+    <details>
+      <summary>View Mermaid source</summary>
+      <pre>sequenceDiagram
+  participant participant_areCapabilitiesEqual as areCapabilitiesEqual
+  participant participant_isDeepEqual as isDeepEqual
+  participant participant_normalizeCapability as normalizeCapability
+  participant participant_uniqueSortedStrings as uniqueSortedStrings
+  participant_areCapabilitiesEqual-&gt;&gt;participant_isDeepEqual: isDeepEqual()
+  participant_isDeepEqual--&gt;&gt;participant_areCapabilitiesEqual: return
+  participant_areCapabilitiesEqual-&gt;&gt;participant_normalizeCapability: normalizeCapability()
+  participant_normalizeCapability-&gt;&gt;participant_uniqueSortedStrings: uniqueSortedStrings()
+  participant_uniqueSortedStrings--&gt;&gt;participant_normalizeCapability: return
+  participant_normalizeCapability--&gt;&gt;participant_areCapabilitiesEqual: return
+</pre>
+    </details>
+  </article><article class="item" data-search="areCapabilityCatalogsEqual sequence diagrams/sequences/are-capability-catalogs-equal.mmd">
+    <h3>areCapabilityCatalogsEqual sequence</h3>
+    <p class="muted"><code>diagrams/sequences/are-capability-catalogs-equal.mmd</code></p>
+    <div class="mermaid">sequenceDiagram
+  participant participant_areCapabilityCatalogsEqual as areCapabilityCatalogsEqual
+  participant participant_isDeepEqual as isDeepEqual
+  participant participant_normalizeCapabilityCatalog as normalizeCapabilityCatalog
+  participant_areCapabilityCatalogsEqual-&gt;&gt;participant_isDeepEqual: isDeepEqual()
+  participant_isDeepEqual--&gt;&gt;participant_areCapabilityCatalogsEqual: return
+  participant_areCapabilityCatalogsEqual-&gt;&gt;participant_normalizeCapabilityCatalog: normalizeCapabilityCatalog()
+  participant_normalizeCapabilityCatalog--&gt;&gt;participant_areCapabilityCatalogsEqual: return
+</div>
+    <details>
+      <summary>View Mermaid source</summary>
+      <pre>sequenceDiagram
+  participant participant_areCapabilityCatalogsEqual as areCapabilityCatalogsEqual
+  participant participant_isDeepEqual as isDeepEqual
+  participant participant_normalizeCapabilityCatalog as normalizeCapabilityCatalog
+  participant_areCapabilityCatalogsEqual-&gt;&gt;participant_isDeepEqual: isDeepEqual()
+  participant_isDeepEqual--&gt;&gt;participant_areCapabilityCatalogsEqual: return
+  participant_areCapabilityCatalogsEqual-&gt;&gt;participant_normalizeCapabilityCatalog: normalizeCapabilityCatalog()
+  participant_normalizeCapabilityCatalog--&gt;&gt;participant_areCapabilityCatalogsEqual: return
+</pre>
+    </details>
+  </article><article class="item" data-search="isCapabilityCatalog sequence diagrams/sequences/is-capability-catalog.mmd">
+    <h3>isCapabilityCatalog sequence</h3>
+    <p class="muted"><code>diagrams/sequences/is-capability-catalog.mmd</code></p>
+    <div class="mermaid">sequenceDiagram
+  participant participant_isCapabilityCatalog as isCapabilityCatalog
+  participant participant_parseCapabilityCatalog as parseCapabilityCatalog
+  participant_isCapabilityCatalog-&gt;&gt;participant_parseCapabilityCatalog: parseCapabilityCatalog()
+  participant_parseCapabilityCatalog--&gt;&gt;participant_isCapabilityCatalog: return
+</div>
+    <details>
+      <summary>View Mermaid source</summary>
+      <pre>sequenceDiagram
+  participant participant_isCapabilityCatalog as isCapabilityCatalog
+  participant participant_parseCapabilityCatalog as parseCapabilityCatalog
+  participant_isCapabilityCatalog-&gt;&gt;participant_parseCapabilityCatalog: parseCapabilityCatalog()
+  participant_parseCapabilityCatalog--&gt;&gt;participant_isCapabilityCatalog: return
+</pre>
+    </details>
+  </article><article class="item" data-search="isCapabilityId sequence diagrams/sequences/is-capability-id.mmd">
+    <h3>isCapabilityId sequence</h3>
+    <p class="muted"><code>diagrams/sequences/is-capability-id.mmd</code></p>
+    <div class="mermaid">sequenceDiagram
+  participant participant_isCapabilityId as isCapabilityId
+  participant participant_isNonEmptyString as isNonEmptyString
+  participant_isCapabilityId-&gt;&gt;participant_isNonEmptyString: isNonEmptyString()
+  participant_isNonEmptyString--&gt;&gt;participant_isCapabilityId: return
+</div>
+    <details>
+      <summary>View Mermaid source</summary>
+      <pre>sequenceDiagram
+  participant participant_isCapabilityId as isCapabilityId
+  participant participant_isNonEmptyString as isNonEmptyString
+  participant_isCapabilityId-&gt;&gt;participant_isNonEmptyString: isNonEmptyString()
+  participant_isNonEmptyString--&gt;&gt;participant_isCapabilityId: return
+</pre>
+    </details>
+  </article><article class="item" data-search="normalizeCapability sequence diagrams/sequences/normalize-capability.mmd">
+    <h3>normalizeCapability sequence</h3>
+    <p class="muted"><code>diagrams/sequences/normalize-capability.mmd</code></p>
+    <div class="mermaid">sequenceDiagram
+  participant participant_normalizeCapability as normalizeCapability
+  participant participant_uniqueSortedStrings as uniqueSortedStrings
+  participant_normalizeCapability-&gt;&gt;participant_uniqueSortedStrings: uniqueSortedStrings()
+  participant_uniqueSortedStrings--&gt;&gt;participant_normalizeCapability: return
+</div>
+    <details>
+      <summary>View Mermaid source</summary>
+      <pre>sequenceDiagram
+  participant participant_normalizeCapability as normalizeCapability
+  participant participant_uniqueSortedStrings as uniqueSortedStrings
+  participant_normalizeCapability-&gt;&gt;participant_uniqueSortedStrings: uniqueSortedStrings()
+  participant_uniqueSortedStrings--&gt;&gt;participant_normalizeCapability: return
+</pre>
+    </details>
+  </article>
+    </section>
+        </section>
+        <section id="view-src-features-capability-arecapabilitiesequal-ts" class="view" data-view="src/features/capability/areCapabilitiesEqual.ts" hidden>
+    <section class="panel">
+      <h2>src/features/capability/areCapabilitiesEqual.ts</h2>
+      <article class="item" data-search="areCapabilitiesEqual src/features/capability/areCapabilitiesEqual.ts Compare capability descriptors independently of record keys and unordered collection ordering.">
+    <h3>areCapabilitiesEqual</h3>
+    <p class="muted"><code>src/features/capability/areCapabilitiesEqual.ts:7:1</code></p>
+    <p>Compare capability descriptors independently of record keys and unordered collection ordering.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-features-capability-iscapability-ts" class="view" data-view="src/features/capability/isCapability.ts" hidden>
+    <section class="panel">
+      <h2>src/features/capability/isCapability.ts</h2>
+      <article class="item" data-search="isCapability src/features/capability/isCapability.ts Validate an untrusted value as one complete portable capability descriptor.">
+    <h3>isCapability</h3>
+    <p class="muted"><code>src/features/capability/isCapability.ts:6:1</code></p>
+    <p>Validate an untrusted value as one complete portable capability descriptor.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-features-capability-iscapabilityid-ts" class="view" data-view="src/features/capability/isCapabilityId.ts" hidden>
+    <section class="panel">
+      <h2>src/features/capability/isCapabilityId.ts</h2>
+      <article class="item" data-search="isCapabilityId src/features/capability/isCapabilityId.ts Validate a stable dot-separated identifier for one capability.">
+    <h3>isCapabilityId</h3>
+    <p class="muted"><code>src/features/capability/isCapabilityId.ts:5:1</code></p>
+    <p>Validate a stable dot-separated identifier for one capability.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-features-capability-normalizecapability-ts" class="view" data-view="src/features/capability/normalizeCapability.ts" hidden>
+    <section class="panel">
+      <h2>src/features/capability/normalizeCapability.ts</h2>
+      <article class="item" data-search="normalizeCapability src/features/capability/normalizeCapability.ts Return a capability with unordered access and binding-role collections sorted and deduplicated.">
+    <h3>normalizeCapability</h3>
+    <p class="muted"><code>src/features/capability/normalizeCapability.ts:8:1</code></p>
+    <p>Return a capability with unordered access and binding-role collections sorted and deduplicated.</p>
+    
+  </article><article class="item" data-search="isCapabilityAccess src/features/capability/normalizeCapability.ts Retain one known portable capability access operation after generic string normalization.">
+    <h3>isCapabilityAccess</h3>
+    <p class="muted"><code>src/features/capability/normalizeCapability.ts:25:1</code></p>
+    <p>Retain one known portable capability access operation after generic string normalization.</p>
+    
+  </article><article class="item" data-search="isCapabilityBindingRole src/features/capability/normalizeCapability.ts Retain one known portable capability binding direction after generic string normalization.">
+    <h3>isCapabilityBindingRole</h3>
+    <p class="muted"><code>src/features/capability/normalizeCapability.ts:30:1</code></p>
+    <p>Retain one known portable capability binding direction after generic string normalization.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-features-capability-parsecapability-ts" class="view" data-view="src/features/capability/parseCapability.ts" hidden>
+    <section class="panel">
+      <h2>src/features/capability/parseCapability.ts</h2>
+      <article class="item" data-search="parseCapability src/features/capability/parseCapability.ts Parse one complete portable capability descriptor from an untrusted value.">
+    <h3>parseCapability</h3>
+    <p class="muted"><code>src/features/capability/parseCapability.ts:22:1</code></p>
+    <p>Parse one complete portable capability descriptor from an untrusted value.</p>
+    
+  </article><article class="item" data-search="isCapabilityAccessList src/features/capability/parseCapability.ts Validate a non-empty list of supported capability access operations.">
+    <h3>isCapabilityAccessList</h3>
+    <p class="muted"><code>src/features/capability/parseCapability.ts:42:1</code></p>
+    <p>Validate a non-empty list of supported capability access operations.</p>
+    
+  </article><article class="item" data-search="isCapabilityAccess src/features/capability/parseCapability.ts Validate one supported capability access operation.">
+    <h3>isCapabilityAccess</h3>
+    <p class="muted"><code>src/features/capability/parseCapability.ts:47:1</code></p>
+    <p>Validate one supported capability access operation.</p>
+    
+  </article><article class="item" data-search="isCapabilityBinding src/features/capability/parseCapability.ts Validate the portable binding shape attached to a capability descriptor.">
+    <h3>isCapabilityBinding</h3>
+    <p class="muted"><code>src/features/capability/parseCapability.ts:52:1</code></p>
+    <p>Validate the portable binding shape attached to a capability descriptor.</p>
+    
+  </article><article class="item" data-search="isCapabilityBindingKind src/features/capability/parseCapability.ts Validate one supported portable capability binding family.">
+    <h3>isCapabilityBindingKind</h3>
+    <p class="muted"><code>src/features/capability/parseCapability.ts:62:1</code></p>
+    <p>Validate one supported portable capability binding family.</p>
+    
+  </article><article class="item" data-search="isCapabilityBindingRole src/features/capability/parseCapability.ts Validate one supported capability binding direction.">
+    <h3>isCapabilityBindingRole</h3>
+    <p class="muted"><code>src/features/capability/parseCapability.ts:69:1</code></p>
+    <p>Validate one supported capability binding direction.</p>
+    
+  </article><article class="item" data-search="isOptionalDataSchemaSlot src/features/capability/parseCapability.ts Validate an omitted or structurally valid portable data-schema slot.">
+    <h3>isOptionalDataSchemaSlot</h3>
+    <p class="muted"><code>src/features/capability/parseCapability.ts:76:1</code></p>
+    <p>Validate an omitted or structurally valid portable data-schema slot.</p>
+    
+  </article><article class="item" data-search="isDataSchemaSlot src/features/capability/parseCapability.ts Validate one portable data-schema slot without importing an executable Contracts helper.">
+    <h3>isDataSchemaSlot</h3>
+    <p class="muted"><code>src/features/capability/parseCapability.ts:81:1</code></p>
+    <p>Validate one portable data-schema slot without importing an executable Contracts helper.</p>
+    
+  </article><article class="item" data-search="isDataSchema src/features/capability/parseCapability.ts Validate the serializable recursive data-schema shape used by capability slots.">
+    <h3>isDataSchema</h3>
+    <p class="muted"><code>src/features/capability/parseCapability.ts:90:1</code></p>
+    <p>Validate the serializable recursive data-schema shape used by capability slots.</p>
+    
+  </article><article class="item" data-search="isOptionalDataSchemaType src/features/capability/parseCapability.ts Validate an omitted data-schema type or supported primitive type declaration.">
+    <h3>isOptionalDataSchemaType</h3>
+    <p class="muted"><code>src/features/capability/parseCapability.ts:113:1</code></p>
+    <p>Validate an omitted data-schema type or supported primitive type declaration.</p>
+    
+  </article><article class="item" data-search="isOptionalStringArray src/features/capability/parseCapability.ts Validate an omitted array of required property names.">
+    <h3>isOptionalStringArray</h3>
+    <p class="muted"><code>src/features/capability/parseCapability.ts:123:1</code></p>
+    <p>Validate an omitted array of required property names.</p>
+    
+  </article><article class="item" data-search="isOptionalDataSchemaProperties src/features/capability/parseCapability.ts Validate an omitted map of nested data schemas.">
+    <h3>isOptionalDataSchemaProperties</h3>
+    <p class="muted"><code>src/features/capability/parseCapability.ts:128:1</code></p>
+    <p>Validate an omitted map of nested data schemas.</p>
+    
+  </article><article class="item" data-search="isOptionalAdditionalProperties src/features/capability/parseCapability.ts Validate an omitted additional-properties declaration.">
+    <h3>isOptionalAdditionalProperties</h3>
+    <p class="muted"><code>src/features/capability/parseCapability.ts:133:1</code></p>
+    <p>Validate an omitted additional-properties declaration.</p>
+    
+  </article><article class="item" data-search="isOptionalDataSchemaArray src/features/capability/parseCapability.ts Validate an omitted recursive data-schema collection.">
+    <h3>isOptionalDataSchemaArray</h3>
+    <p class="muted"><code>src/features/capability/parseCapability.ts:138:1</code></p>
+    <p>Validate an omitted recursive data-schema collection.</p>
+    
+  </article><article class="item" data-search="isDataSchemaRef src/features/capability/parseCapability.ts Validate a schema reference with a non-empty stable identifier.">
+    <h3>isDataSchemaRef</h3>
+    <p class="muted"><code>src/features/capability/parseCapability.ts:143:1</code></p>
+    <p>Validate a schema reference with a non-empty stable identifier.</p>
+    
+  </article><article class="item" data-search="isOptionalSerializableValue src/features/capability/parseCapability.ts Validate an omitted JSON-serializable scalar, array, or record value.">
+    <h3>isOptionalSerializableValue</h3>
+    <p class="muted"><code>src/features/capability/parseCapability.ts:148:1</code></p>
+    <p>Validate an omitted JSON-serializable scalar, array, or record value.</p>
+    
+  </article><article class="item" data-search="isOptionalSerializableValueArray src/features/capability/parseCapability.ts Validate an omitted array of JSON-serializable values.">
+    <h3>isOptionalSerializableValueArray</h3>
+    <p class="muted"><code>src/features/capability/parseCapability.ts:153:1</code></p>
+    <p>Validate an omitted array of JSON-serializable values.</p>
+    
+  </article><article class="item" data-search="isSerializableValue src/features/capability/parseCapability.ts Validate one JSON-serializable value recursively.">
+    <h3>isSerializableValue</h3>
+    <p class="muted"><code>src/features/capability/parseCapability.ts:158:1</code></p>
+    <p>Validate one JSON-serializable value recursively.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-features-catalog-arecapabilitycatalogsequal-ts" class="view" data-view="src/features/catalog/areCapabilityCatalogsEqual.ts" hidden>
+    <section class="panel">
+      <h2>src/features/catalog/areCapabilityCatalogsEqual.ts</h2>
+      <article class="item" data-search="areCapabilityCatalogsEqual src/features/catalog/areCapabilityCatalogsEqual.ts Compare capability catalogs independently of authored catalog and unordered descriptor collection ordering.">
+    <h3>areCapabilityCatalogsEqual</h3>
+    <p class="muted"><code>src/features/catalog/areCapabilityCatalogsEqual.ts:7:1</code></p>
+    <p>Compare capability catalogs independently of authored catalog and unordered descriptor collection ordering.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-features-catalog-iscapabilitycatalog-ts" class="view" data-view="src/features/catalog/isCapabilityCatalog.ts" hidden>
+    <section class="panel">
+      <h2>src/features/catalog/isCapabilityCatalog.ts</h2>
+      <article class="item" data-search="isCapabilityCatalog src/features/catalog/isCapabilityCatalog.ts Validate a capability catalog with complete descriptors and unique stable identifiers.">
+    <h3>isCapabilityCatalog</h3>
+    <p class="muted"><code>src/features/catalog/isCapabilityCatalog.ts:6:1</code></p>
+    <p>Validate a capability catalog with complete descriptors and unique stable identifiers.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-features-catalog-normalizecapabilitycatalog-ts" class="view" data-view="src/features/catalog/normalizeCapabilityCatalog.ts" hidden>
+    <section class="panel">
+      <h2>src/features/catalog/normalizeCapabilityCatalog.ts</h2>
+      <article class="item" data-search="normalizeCapabilityCatalog src/features/catalog/normalizeCapabilityCatalog.ts Normalize trusted catalog descriptors and sort them by stable capability identifier.">
+    <h3>normalizeCapabilityCatalog</h3>
+    <p class="muted"><code>src/features/catalog/normalizeCapabilityCatalog.ts:6:1</code></p>
+    <p>Normalize trusted catalog descriptors and sort them by stable capability identifier.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-features-catalog-parsecapabilitycatalog-ts" class="view" data-view="src/features/catalog/parseCapabilityCatalog.ts" hidden>
+    <section class="panel">
+      <h2>src/features/catalog/parseCapabilityCatalog.ts</h2>
+      <article class="item" data-search="parseCapabilityCatalog src/features/catalog/parseCapabilityCatalog.ts Parse a capability catalog and reject invalid descriptors or duplicate stable identifiers.">
+    <h3>parseCapabilityCatalog</h3>
+    <p class="muted"><code>src/features/catalog/parseCapabilityCatalog.ts:6:1</code></p>
+    <p>Parse a capability catalog and reject invalid descriptors or duplicate stable identifiers.</p>
+    
+  </article>
+    </section>
+  </section>
+      </main>
+    </div>
+    <script>
+      const search = document.getElementById('search');
+      const navButtons = Array.from(document.querySelectorAll('[data-target]'));
+      const views = Array.from(document.querySelectorAll('[data-view]'));
+
+      function getActiveView() {
+        return document.querySelector('[data-view]:not([hidden])');
+      }
+
+      function applySearch() {
+        const value = search?.value.trim().toLowerCase() || '';
+        const activeView = getActiveView();
+        const items = Array.from(activeView?.querySelectorAll('[data-search]') || []);
+
+        for (const item of items) {
+          const haystack = (item.getAttribute('data-search') || '').toLowerCase();
+          item.style.display = value === '' || haystack.includes(value) ? '' : 'none';
+        }
+      }
+
+      for (const button of navButtons) {
+        button.addEventListener('click', () => {
+          const target = button.getAttribute('data-target');
+
+          for (const view of views) {
+            view.hidden = view.getAttribute('data-view') !== target;
+          }
+
+          for (const item of navButtons) {
+            item.setAttribute('aria-current', item === button ? 'page' : 'false');
+          }
+
+          if (search) search.value = '';
+          applySearch();
+        });
+      }
+
+      search?.addEventListener('input', applySearch);
+    </script>
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+  </body>
+</html>

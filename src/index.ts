@@ -1,0 +1,9 @@
+export { areCapabilitiesEqual } from './features/capability/areCapabilitiesEqual.js';
+export { isCapability } from './features/capability/isCapability.js';
+export { isCapabilityId } from './features/capability/isCapabilityId.js';
+export { normalizeCapability } from './features/capability/normalizeCapability.js';
+export { parseCapability } from './features/capability/parseCapability.js';
+export { areCapabilityCatalogsEqual } from './features/catalog/areCapabilityCatalogsEqual.js';
+export { isCapabilityCatalog } from './features/catalog/isCapabilityCatalog.js';
+export { normalizeCapabilityCatalog } from './features/catalog/normalizeCapabilityCatalog.js';
+export { parseCapabilityCatalog } from './features/catalog/parseCapabilityCatalog.js';
