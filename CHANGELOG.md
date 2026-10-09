@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1
+
+### Patch Changes
+
+- fa7039b: Preserve released `DataSchemaRef` and nested data-schema validation semantics.
+
 ## 0.2.0
 
 ### Minor Changes

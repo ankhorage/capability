@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.2.0",
+      "value": "v0.2.1",
       "color": "cb3837"
     },
     {
@@ -723,7 +723,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 127,
+        "line": 125,
         "column": 1
       }
     },
@@ -734,7 +734,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 136,
+        "line": 134,
         "column": 1
       }
     },
@@ -745,7 +745,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 147,
+        "line": 145,
         "column": 1
       }
     },
@@ -756,7 +756,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 155,
+        "line": 153,
         "column": 1
       }
     },
@@ -767,7 +767,18 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 160,
+        "line": 158,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalDataSchemaComposition",
+      "description": "Validate optional schema intersections and alternatives from own properties only.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capability/parseCapability.ts",
+        "line": 163,
         "column": 1
       }
     },
@@ -778,18 +789,18 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 165,
+        "line": 170,
         "column": 1
       }
     },
     {
       "name": "isDataSchemaRef",
-      "description": "Validate a schema reference with a non-empty stable identifier.",
+      "description": "Validate a schema reference with the portable string identifier contract.",
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 170,
+        "line": 175,
         "column": 1
       }
     },
@@ -800,7 +811,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 175,
+        "line": 180,
         "column": 1
       }
     },
@@ -811,7 +822,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 180,
+        "line": 185,
         "column": 1
       }
     },
@@ -822,7 +833,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capability/parseCapability.ts",
-        "line": 185,
+        "line": 190,
         "column": 1
       }
     },
@@ -1342,8 +1353,8 @@
       },
       {
         "fromSymbol": "isDataSchemaStructure",
-        "toSymbol": "isOptionalDataSchemaArray",
-        "callExpression": "isOptionalDataSchemaArray",
+        "toSymbol": "isOptionalDataSchemaComposition",
+        "callExpression": "isOptionalDataSchemaComposition",
         "sourcePath": "src/features/capability/parseCapability.ts"
       },
       {
@@ -1377,15 +1388,21 @@
         "sourcePath": "src/features/capability/parseCapability.ts"
       },
       {
-        "fromSymbol": "isDataSchemaRef",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
+        "fromSymbol": "src/features/capability/parseCapability.ts",
+        "toSymbol": "isOptionalDataSchemaArray",
+        "callExpression": "isOptionalDataSchemaArray",
+        "sourcePath": "src/features/capability/parseCapability.ts"
+      },
+      {
+        "fromSymbol": "src/features/capability/parseCapability.ts",
+        "toSymbol": "readOwnProperty",
+        "callExpression": "readOwnProperty",
         "sourcePath": "src/features/capability/parseCapability.ts"
       },
       {
         "fromSymbol": "isDataSchemaRef",
-        "toSymbol": "isNonEmptyString",
-        "callExpression": "isNonEmptyString",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
         "sourcePath": "src/features/capability/parseCapability.ts"
       },
       {
