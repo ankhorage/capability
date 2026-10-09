@@ -4,7 +4,7 @@ import type {
   CapabilityBindingKind,
   CapabilityBindingRole,
 } from '@ankhorage/contracts/capability';
-import { isRecord } from '@ankhorage/utility/object';
+import { isRecord, readOwnProperty } from '@ankhorage/utility/object';
 import { isNonEmptyString, isOptionalString } from '@ankhorage/utility/string';
 
 import { isCapabilityId } from './isCapabilityId.js';
@@ -116,9 +116,7 @@ function isDataSchemaMetadata(value: Record<string, unknown>): boolean {
 function isDataSchemaStructure(value: Record<string, unknown>): boolean {
   return (
     (value.items === undefined || isDataSchema(value.items)) &&
-    isOptionalDataSchemaArray(value.allOf) &&
-    isOptionalDataSchemaArray(value.anyOf) &&
-    isOptionalDataSchemaArray(value.oneOf) &&
+    isOptionalDataSchemaComposition(value) &&
     (value.ref === undefined || isDataSchemaRef(value.ref))
   );
 }
@@ -161,14 +159,21 @@ function isOptionalAdditionalProperties(value: unknown): boolean {
   return value === undefined || typeof value === 'boolean' || isDataSchema(value);
 }
 
+/*** Validate optional schema intersections and alternatives from own properties only. */
+function isOptionalDataSchemaComposition(value: Record<string, unknown>): boolean {
+  return ['allOf', 'anyOf', 'oneOf'].every((key) =>
+    isOptionalDataSchemaArray(readOwnProperty(value, key)),
+  );
+}
+
 /*** Validate an omitted recursive data-schema collection. */
 function isOptionalDataSchemaArray(value: unknown): boolean {
   return value === undefined || (Array.isArray(value) && value.every(isDataSchema));
 }
 
-/*** Validate a schema reference with a non-empty stable identifier. */
+/*** Validate a schema reference with the portable string identifier contract. */
 function isDataSchemaRef(value: unknown): boolean {
-  return isRecord(value) && isNonEmptyString(value.id);
+  return isRecord(value) && typeof value.id === 'string';
 }
 
 /*** Validate an omitted JSON-serializable scalar, array, or record value. */

@@ -34,7 +34,23 @@ describe('capability descriptors', () => {
     expect(parseCapability({ ...CAPABILITY, binding: undefined })).toBeNull();
     expect(parseCapability({ ...CAPABILITY, access: ['delete'] })).toBeNull();
     expect(parseCapability({ ...CAPABILITY, input: { schema: { type: 'date' } } })).toBeNull();
-    expect(parseCapability({ ...CAPABILITY, output: { schemaRef: { id: '' } } })).toBeNull();
+    expect(parseCapability({ ...CAPABILITY, output: { schemaRef: { id: 0 } } })).toBeNull();
+  });
+
+  test('preserves released nested data-schema validation semantics', () => {
+    expect(
+      parseCapability({
+        ...CAPABILITY,
+        input: { schema: { ref: { id: '' } } },
+        output: { schemaRef: { id: '' } },
+      }),
+    ).not.toBeNull();
+
+    const schemaWithInheritedComposition = Object.create({ allOf: [{ type: 'date' }] });
+
+    expect(
+      parseCapability({ ...CAPABILITY, input: { schema: schemaWithInheritedComposition } }),
+    ).not.toBeNull();
   });
 
   test('normalizes unordered descriptor collections and compares structurally', () => {
