@@ -1,4 +1,4 @@
-import { mkdir, mkdtemp, readdir, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -31,6 +31,14 @@ test('installs the packed package into a fresh consumer and imports its public A
     );
 
     expect(result.exitCode).toBe(0);
+    const installedCapability = JSON.parse(
+      await readFile(join(consumerDirectory, 'node_modules/@ankhorage/capability/package.json'), 'utf8'),
+    ) as { dependencies: Record<string, string> };
+    const resolvedContracts = JSON.parse(
+      await readFile(join(consumerDirectory, 'node_modules/@ankhorage/contracts/package.json'), 'utf8'),
+    ) as { version: string };
+    expect(installedCapability.dependencies['@ankhorage/contracts']).toBe('^26.0.0');
+    expect(resolvedContracts.version.split('.')[0]).toBe('26');
   } finally {
     await rm(temporaryDirectory, { force: true, recursive: true });
   }
