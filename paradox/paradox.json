@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.2.1",
+      "value": "v0.2.2",
       "color": "cb3837"
     },
     {
@@ -1175,6 +1175,12 @@
         "fromSymbol": "tests/standalone.test.ts",
         "toSymbol": "expect",
         "callExpression": "expect",
+        "sourcePath": "tests/standalone.test.ts"
+      },
+      {
+        "fromSymbol": "tests/standalone.test.ts",
+        "toSymbol": "readFile",
+        "callExpression": "readFile",
         "sourcePath": "tests/standalone.test.ts"
       },
       {

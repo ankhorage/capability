@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.2
+
+### Patch Changes
+
+- 397b4fe: Require published Contracts 26 for the capability toolkit runtime dependency.
+
 ## 0.2.1
 
 ### Patch Changes
