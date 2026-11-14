@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "kind": "library",
+  "title": "Ankhorage Capability",
+  "summary": "Provides runtime validation, normalization, equality, and catalog operations for capabilities.",
+  "purpose": "Offer reusable capability operations without coupling consumers to a specific host or provider.",
+  "domain": "capability modeling",
+  "responsibilities": [
+    "Validate and normalize capability values.",
+    "Compare capability values and operate on capability catalogs."
+  ],
+  "boundaries": [
+    "Does not provide provider-specific capability implementations.",
+    "Does not acquire capabilities from a host environment."
+  ],
+  "audience": ["Package and application authors that model capabilities."],
+  "useCases": [
+    "Validate and normalize capability declarations.",
+    "Query and compare capability catalogs."
+  ],
+  "architecture": {
+    "role": "Portable capability utility library.",
+    "invariants": ["Operations are independent of a concrete capability provider."]
+  },
+  "constraints": {
+    "limitations": ["Consumers supply the capability values and catalogs to operate on."]
+  }
+}
