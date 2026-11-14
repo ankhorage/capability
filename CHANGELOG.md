@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.3
+
+### Patch Changes
+
+- 7938a6f: Add canonical repository metadata for package discovery and documentation.
+
 ## 0.2.2
 
 ### Patch Changes
